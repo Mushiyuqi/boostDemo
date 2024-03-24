@@ -78,6 +78,7 @@ int connect_to_end(){
         std::cout<< "Error code = "<< e.code()<< ". Message: "<< e.what()<< std::endl;
         return e.code().value();
     }
+    return 0;
 }
 
 int dns_connect_to_end(){
@@ -95,7 +96,7 @@ int dns_connect_to_end(){
         std::cout<< "Error code = "<< e.code()<< ". Message: "<< e.what()<< std::endl;
         return e.code().value();
     }
-
+    return 0;
 }
 
 int accept_new_connection(){
