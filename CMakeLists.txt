@@ -10,7 +10,9 @@ add_executable(boostDemo main.cpp
         include/endPoint.h
         source/endPoint.cpp
         source/syncReadWrite.cpp
-        include/syncReadWrite.h)
+        include/syncReadWrite.h
+        include/asynReadWrite.h
+        source/asynReadWrite.cpp)
 
 # 添加Boost库的依赖
 target_include_directories(boostDemo PRIVATE ${Boost_INCLUDE_DIRS})

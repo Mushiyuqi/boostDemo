@@ -5,6 +5,7 @@
 #include <exception>
 #include <array>
 #include <boost/asio.hpp>
+#include <unistd.h>
 
 const int MAX_LENGTH = 1024;
 typedef std::shared_ptr<boost::asio::ip::tcp::socket> socket_ptr;
@@ -32,7 +33,7 @@ void session(socket_ptr sock){
             std::cout<<std::endl;
 
             //回传数据
-            boost::asio::write(*sock, boost::asio::buffer(data, MAX_LENGTH));
+            boost::asio::write(*sock, boost::asio::buffer(data, length));
         }
     }catch (std::exception& e){
         std::cerr<< "Exception in thread: " << e.what() << '\n' << std::endl;
