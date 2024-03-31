@@ -4,7 +4,7 @@
 #include <iostream>
 #include <queue>
 
-const int RECVSIZE = 1024;
+const size_t RECVSIZE = 1024;
 class MsgNode{
 public:
     //做为发送节点
@@ -31,6 +31,13 @@ public:
     Session(std::shared_ptr<boost::asio::ip::tcp::socket> socket);
     void Connect(const boost::asio::ip::tcp::endpoint& ep);
 
+    /**
+     * 顶层异步操作(async_send async_receive) 和 中层的异步操作(async_write_some async_read_some)不能混用
+     */
+
+    /**
+     * 写函数
+     */
     /// 没有考虑到发送数据的一致性的版本
     /// 没有使用队列来管理要发送的数据
     //写数据后的回调函数，写成功后就会调用该函数 判断是否发完 保证数据全部发完
@@ -47,14 +54,25 @@ public:
     /// 对于长度较大的数据 不频繁的调用回调函数的版本
     void WriteAllCallBack(const boost::system::error_code& ec, std::size_t bytes_transferred);
     void WriteAllToSocket(const std::string buf);
+
+    /**
+     * 读函数
+     */
+    void ReadFromSocket();
+    void ReadCallBack(const boost::system::error_code& ec, std::size_t bytes_transferred);
+
+    void ReadAllFromSocket();
+    void ReadAllCallBack(const boost::system::error_code& ec, std::size_t bytes_transferred);
 private:
     // 添加发送队列 由于异步发送要确保多次发送出的数据的有序性
     // 发给同一个人的数据要确保有序性
-    bool send_pending;
     std::queue<std::shared_ptr<MsgNode>> _send_queue;
+    std::shared_ptr<MsgNode> _recv_node;
+    std::shared_ptr<MsgNode> _send_node;//实际没有用
+
+    bool send_pending;
+    bool recv_pending;
+
     std::shared_ptr<boost::asio::ip::tcp::socket> _socket;
-
-    std::shared_ptr<MsgNode> _send_node;
-
 };
 

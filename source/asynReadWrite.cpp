@@ -3,7 +3,8 @@
 //
 #include "../include/asynReadWrite.h"
 
-Session::Session(std::shared_ptr<boost::asio::ip::tcp::socket> socket): _socket{socket}, send_pending{false}{}
+Session::Session(std::shared_ptr<boost::asio::ip::tcp::socket> socket):
+_socket{socket}, send_pending{false}, recv_pending{false}{}
 
 void Session::Connect(const boost::asio::ip::tcp::endpoint &ep) {
     _socket->connect(ep);
@@ -51,18 +52,16 @@ void Session::WriteCallBack(const boost::system::error_code& ec, std::size_t byt
     /// 拿出队列里第下一个数据进行发送
     _send_queue.pop();
     if(_send_queue.empty())
-        return;
+        send_pending = false;
     else{
         send_data = _send_queue.front();
         /// 将数据发送出去
         this->_socket->async_write_some(boost::asio::buffer(send_data->_msg, send_data->_total_len),
                                         std::bind(&Session::WriteCallBack, this, std::placeholders::_1, std::placeholders::_2));
-        return;
     }
-    return;
 }
 
-//todo 关于buf生命周期的验证
+
 void Session::WriteToSocket(const std::string buf){
     //将要发送的数据放入队列
     _send_queue.emplace(std::make_shared<MsgNode>(buf.c_str(), buf.length()));
@@ -80,9 +79,77 @@ void Session::WriteToSocket(const std::string buf){
 
 
 void Session::WriteAllCallBack(const boost::system::error_code& ec, std::size_t bytes_transferred){
+    if(ec.value() != 0){
+        std::cout << "Error, code is" << ec.value() << " . Message is "<< ec.message() << std::endl;
+        return;
+    }
 
+    /// 拿出队列里第下一个数据进行发送
+    _send_queue.pop();
+    if(_send_queue.empty())
+        send_pending = false;
+    else{
+        auto& send_data = _send_queue.front();
+        /// 将数据发送出去
+        this->_socket->async_send(boost::asio::buffer(send_data->_msg, send_data->_total_len),
+                                        std::bind(&Session::WriteCallBack, this, std::placeholders::_1, std::placeholders::_2));
+    }
 }
 
 void Session::WriteAllToSocket(const std::string buf) {
+    _send_queue.emplace(std::make_shared<MsgNode>(buf.c_str(), buf.length()));
 
+    if(send_pending)
+        return;
+
+    /// async_send 是由boost::asio封装的 会多次调用async_write_some 确保数据全部发送
+    _socket->async_send(boost::asio::buffer(buf), bind(&Session::WriteAllCallBack, this, std::placeholders::_1, std::placeholders::_2));
+
+    send_pending = true;
+}
+
+
+
+void Session::ReadCallBack(const boost::system::error_code& ec, std::size_t bytes_transferred){
+    if(ec.value() != 0){
+        std::cout << "Error, code is" << ec.value() << " . Message is "<< ec.message() << std::endl;
+        return;
+    }
+
+    _recv_node->_cur_len += bytes_transferred;
+    if(_recv_node->_cur_len < _recv_node->_total_len){
+        _socket->async_read_some(
+                boost::asio::buffer(_recv_node->_msg + _recv_node->_cur_len, _recv_node->_total_len - _recv_node->_cur_len),
+                bind(&Session::ReadCallBack, this, std::placeholders::_1, std::placeholders::_2));
+        return;
+    }
+
+    recv_pending = false;
+}
+
+void Session::ReadFromSocket(){
+    if(recv_pending)
+        return;
+
+    _recv_node = std::make_shared<MsgNode>(RECVSIZE);
+    _socket->async_read_some(boost::asio::buffer(_recv_node->_msg, _recv_node->_total_len), bind(&Session::ReadCallBack, this, std::placeholders::_1, std::placeholders::_2));
+}
+
+
+void Session::ReadAllCallBack(const boost::system::error_code& ec, std::size_t bytes_transferred){
+    if(ec.value() != 0){
+        std::cout << "Error, code is" << ec.value() << " . Message is "<< ec.message() << std::endl;
+        return;
+    }
+
+    _recv_node->_cur_len += bytes_transferred;
+    recv_pending = false;
+}
+
+void Session::ReadAllFromSocket(){
+    if(recv_pending)
+        return;
+
+    _recv_node = std::make_shared<MsgNode>(RECVSIZE);
+    _socket->async_receive(boost::asio::buffer(_recv_node->_msg, _recv_node->_total_len), bind(&Session::ReadCallBack, this, std::placeholders::_1, std::placeholders::_2));
 }
