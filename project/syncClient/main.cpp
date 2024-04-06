@@ -47,7 +47,7 @@ int main(){
             std::array<char, MAX_LENGTH> reply{};
             //此处不考虑 我们不知道服务器要发多少数据过来
             std::size_t reply_length = boost::asio::read(sock, boost::asio::buffer(reply, request_length));
-            std::cout<<"Reply is: ";
+            std::cout<<"Reply is     : ";
             std::cout.write(reply.data(), reply_length);
             std::cout<<std::endl;
         //}
