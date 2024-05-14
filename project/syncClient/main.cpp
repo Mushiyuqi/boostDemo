@@ -1,7 +1,9 @@
-#include <iostream>
+#include    <iostream>
 #include <boost/asio.hpp>
+#include <memory>
 
-const int MAX_LENGTH = 1024;
+const int MAX_LENGTH = 1024 * 1024;
+const int HEAD_LENGTH = sizeof (size_t);
 
 int main(){
     try{
@@ -13,44 +15,56 @@ int main(){
 
         //建立连接
         sock.connect(remote_ep, ec);
+
         if(ec){
             std::cerr<< "connect failed, code is " << ec.value() << " error message is " << ec.message() <<std::endl;
             return -1;
         }
 
-        /*//获取并发送的数据
-        std::cout<< "Enter Message: ";
-        std::array<char, MAX_LENGTH> request{};
-        std::cin.getline(request.data(), MAX_LENGTH);
-        std::size_t request_length = strlen(request.data());
-        int res_write = boost::asio::write(sock, boost::asio::buffer(request, request_length));
-
-        if(res_write <= 0){
-            std::cerr<< "write to socket failed!" <<std::endl;
-            return res_write;
-        }*/
-
-        //for(;;){
+        for(;;){
             //获取并发送的数据
-            std::cout<< "Enter Message: ";
-            std::array<char, MAX_LENGTH> request{};
-            std::cin.getline(request.data(), MAX_LENGTH);
-            std::size_t request_length = strlen(request.data());
-            int res_write = boost::asio::write(sock, boost::asio::buffer(request, request_length));
+            //std::cout<< "Enter Message: ";
+            std::shared_ptr<std::array<char, MAX_LENGTH>> request = std::make_shared<std::array<char, MAX_LENGTH>>();
+            //std::cin.getline(request.data(), MAX_LENGTH);
+            int i;
+            for(i = 0; i != MAX_LENGTH - 1024; ++i){
+                (*request)[i] = '0';
+            }
+            (*request)[i] = '\0';
 
+            std::size_t request_length = strlen(request->data());
+            std::cout<< " send data length :" << request_length << std::endl;
+
+            std::shared_ptr<std::array<char, MAX_LENGTH + HEAD_LENGTH>> send_data = std::make_shared<std::array<char, MAX_LENGTH + HEAD_LENGTH>>();
+            memcpy(send_data->data(), &request_length, HEAD_LENGTH);
+            memcpy(send_data->data() + HEAD_LENGTH, request->data(), request_length);
+
+            //计算时间
+            auto start = std::chrono::high_resolution_clock::now();
+
+            int res_write = boost::asio::write(sock, boost::asio::buffer(send_data->data(), request_length + HEAD_LENGTH));
             if(res_write <= 0){
                 std::cerr<< "write to socket failed!" <<std::endl;
                 return res_write;
             }
 
+            auto end = std::chrono::high_resolution_clock::now();
+            auto duration = std::chrono::duration_cast<std::chrono::microseconds>(end - start).count();
+            std::cerr << "Elapsed time: " << duration << " microseconds" << std::endl;
+
             //接收数据
-            std::array<char, MAX_LENGTH> reply{};
-            //此处不考虑 我们不知道服务器要发多少数据过来
-            std::size_t reply_length = boost::asio::read(sock, boost::asio::buffer(reply, request_length));
+            std::array<char, HEAD_LENGTH> reply_head{};
+            std::size_t reply_length = boost::asio::read(sock, boost::asio::buffer(reply_head.data(), HEAD_LENGTH));
+            std::size_t msg_len = 0;
+            memcpy(&msg_len, reply_head.data(), HEAD_LENGTH);
+
+            std::shared_ptr<std::array<char, MAX_LENGTH>> msg = std::make_shared< std::array<char, MAX_LENGTH>>();
+            size_t msg_length = boost::asio::read(sock, boost::asio::buffer(msg->data(), msg_len));
+
             std::cout<<"Reply is     : ";
-            std::cout.write(reply.data(), reply_length);
-            std::cout<<std::endl;
-        //}
+            std::cout.write(msg->data(), msg_len) << std::endl;
+            std::cout<<"Reply len is : " << msg_len << std::endl;
+        }
 
     }catch(boost::system::system_error& e) {
         std::cout<<"Error: " << e.what() << std::endl;
