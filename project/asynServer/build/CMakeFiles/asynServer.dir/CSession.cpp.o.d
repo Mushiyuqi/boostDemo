@@ -1466,4 +1466,8 @@ CMakeFiles/asynServer.dir/CSession.cpp.o: \
  /run/media/root/linuxData/study/boostDemo/project/asynServer/CServer.h \
  /usr/include/c++/14.1.1/map /usr/include/c++/14.1.1/bits/stl_tree.h \
  /usr/include/c++/14.1.1/bits/stl_map.h \
- /usr/include/c++/14.1.1/bits/stl_multimap.h
+ /usr/include/c++/14.1.1/bits/stl_multimap.h \
+ /usr/include/c++/14.1.1/iomanip \
+ /usr/include/c++/14.1.1/bits/quoted_string.h \
+ /usr/include/c++/14.1.1/thread \
+ /usr/include/c++/14.1.1/bits/this_thread_sleep.h

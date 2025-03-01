@@ -24,7 +24,8 @@ int main() {
         // 发送线程
         std::thread send_thread([&sock]() {
             for (;;) {
-                std::this_thread::sleep_for(std::chrono::seconds(2));
+                std::this_thread::sleep_for(std::chrono::milliseconds(2));
+                // std::cout << "begin to send..." << std::endl;
                 const char* request = "hello world!";
                 size_t request_len = strlen(request);
                 char send_data[MAX_LENGTH] = {0};
@@ -37,18 +38,18 @@ int main() {
         //接收线程
         std::thread recv_thread([&sock]() {
             for (;;) {
-                std::this_thread::sleep_for(std::chrono::seconds(2));
+                std::this_thread::sleep_for(std::chrono::milliseconds(2));
                 std::cout << "begin to receive..." << std::endl;
-                char reply_head[MAX_LENGTH];
+                char reply_head[HEAD_LENGTH];
                 size_t reply_length = boost::asio::read(sock, boost::asio::buffer(reply_head, HEAD_LENGTH));
-                short msglen = 0;
+                size_t msglen = 0;
                 memcpy(&msglen, reply_head, HEAD_LENGTH);
                 char msg[MAX_LENGTH] = {0};
                 size_t msg_length = boost::asio::read(sock, boost::asio::buffer(msg, msglen));
 
                 std::cout << "replay is: ";
                 std::cout.write(msg, msg_length) << std::endl;
-                std::cout << "replay len is " << msg_length << std::endl;
+                std::cout << "replay len is: " << msg_length << std::endl;
                 std::cout << std::endl;
             }
         });

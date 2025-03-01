@@ -45,6 +45,9 @@ private:
     // 写回调
     void HandleWrite(const boost::system::error_code& ec, size_t byt_transferred, std::shared_ptr<CSession> _self_shared);
 
+    // 打印数据
+    static void PrintRecvData(const char* data, int length);
+
 private:
     //enum {max_length = 1024};
 
@@ -63,4 +66,6 @@ private:
 
     /// 锁
     std::mutex m_send_lock;
+
+    bool test = false;
 };
