@@ -4,14 +4,62 @@
 #include <boost/uuid/uuid_io.hpp>
 #include <iostream>
 #include <queue>
-#include "MsgNode.h"
+#include "const.h"
 
+class MsgNode {
+    friend class CSession;
+public:
+    /**
+     * 为记录长度预留了空间的node
+     * 用于发送一整个完整的包
+     * @param msg 数据的首地址
+     * @param max_len 数据的长度
+     */
+    MsgNode(char * msg, short max_len): m_total_len(max_len +  HEAD_LENGTH), m_cur_len(0){
+        m_data = new char[m_total_len+1]();
+        // 转为网络字节序
+        const unsigned short max_len_host = boost::asio::detail::socket_ops::host_to_network_short(max_len);
+        memcpy(m_data, &max_len_host, HEAD_LENGTH);// 将消息长度写入m_data
+        memcpy(m_data+ HEAD_LENGTH, msg, max_len);// 将消息内容写入m_data
+        m_data[m_total_len] = '\0';// 给m_data添加结束符
+    }
+
+    /**
+     *  什么都没做的node
+     * @param max_len node的长度 HEAD_LENGTH + Data length
+     */
+    MsgNode(short max_len):m_total_len(max_len),m_cur_len(0) {
+        m_data = new char[m_total_len +1]();
+    }
+
+    /**
+     * 释放m_data
+     */
+    ~MsgNode() {
+        delete[] m_data;
+    }
+
+    /**
+     * 重置 m_data 就不用再去开辟 m_data 了
+     */
+    void Clear() {
+        ::memset(m_data, 0, m_total_len);
+        m_cur_len = 0;
+    }
+private:
+    short m_cur_len;
+    short m_total_len;
+    char* m_data;
+};
+
+/**
+ * shared_ptr 是通过 = 传参 等方式来共享一块区域 这样创建的新的ptr拥有相同的计数 本质还是一个智能指针管理一个区域
+ * 不能对以用智能指针管理的区域 再用 make_ptr和一个地址 创建一个智能指针
+ * 为了能在类中不使用外部管理本类实体的share_ptr来创建一个在类内部使用的share_ptr 而引入了shared_from_this()
+ * 为了能使用 shared_from_this() 需让类继承std::enable_shared_from_this<className>
+ * 该函数返回一个指向自己的share_ptr 该ptr与原本(外部)指向本实体的ptr保持同步计数
+ */
 class CServer;
-/// shared_ptr 是通过 = 传参 等方式来共享一块区域 这样创建的新的ptr拥有相同的计数 本质还是一个智能指针管理一个区域
-/// 不能对以用智能指针管理的区域 再用 make_ptr和一个地址 创建一个智能指针
-/// 为了能在类中不使用外部管理本类实体的share_ptr来创建一个在类内部使用的share_ptr 而引入了shared_from_this()
-/// 为了能使用 shared_from_this() 需让类继承std::enable_shared_from_this<className>
-/// 该函数返回一个指向自己的share_ptr 该ptr与原本(外部)指向本实体的ptr保持同步计数
 class CSession: public std::enable_shared_from_this<CSession>{
 public:
     CSession(boost::asio::io_context& ioc, CServer* server): m_socket(ioc), _server(server){

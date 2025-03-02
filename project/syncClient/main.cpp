@@ -2,8 +2,8 @@
 #include <boost/asio.hpp>
 #include <memory>
 
-const int MAX_LENGTH = 1024 * 1024;
-const int HEAD_LENGTH = sizeof(size_t);
+const int MAX_LENGTH = 1024 * 2;
+const int HEAD_LENGTH = 2;
 
 int main() {
     try {
@@ -27,9 +27,11 @@ int main() {
                 std::this_thread::sleep_for(std::chrono::milliseconds(2));
                 // std::cout << "begin to send..." << std::endl;
                 const char* request = "hello world!";
-                size_t request_len = strlen(request);
+                short request_len = strlen(request);
                 char send_data[MAX_LENGTH] = {0};
-                memcpy(send_data, &request_len, HEAD_LENGTH);
+                //转为网络字节序
+                auto request_host_length = boost::asio::detail::socket_ops::host_to_network_short(request_len);
+                memcpy(send_data, &request_host_length, HEAD_LENGTH);
                 memcpy(send_data + HEAD_LENGTH, request, request_len);
                 boost::asio::write(sock, boost::asio::buffer(send_data, request_len + HEAD_LENGTH));
             }
@@ -42,14 +44,16 @@ int main() {
                 std::cout << "begin to receive..." << std::endl;
                 char reply_head[HEAD_LENGTH];
                 size_t reply_length = boost::asio::read(sock, boost::asio::buffer(reply_head, HEAD_LENGTH));
-                size_t msglen = 0;
+                short msglen = 0;
                 memcpy(&msglen, reply_head, HEAD_LENGTH);
+                //转为本地字节序
+                msglen = boost::asio::detail::socket_ops::network_to_host_short(msglen);
                 char msg[MAX_LENGTH] = {0};
                 size_t msg_length = boost::asio::read(sock, boost::asio::buffer(msg, msglen));
 
                 std::cout << "replay is: ";
-                std::cout.write(msg, msg_length) << std::endl;
-                std::cout << "replay len is: " << msg_length << std::endl;
+                std::cout.write(msg, msglen) << std::endl;
+                std::cout << "replay len is: " << msglen << std::endl;
                 std::cout << std::endl;
             }
         });

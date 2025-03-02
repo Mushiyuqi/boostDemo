@@ -1,6 +1,5 @@
 #include "CSession.h"
 #include "CServer.h"
-#include "MsgNode.h"
 #include <iomanip>
 #include <thread>
 
@@ -25,16 +24,16 @@ void CSession::Start() {
 
 void CSession::Send(char* msg, std::size_t max_length) {
     std::lock_guard<std::mutex> lock(m_send_lock); // lock_guard 构造时加锁，析构时解锁
-    bool pending = false; // 队列中是否有数据正在发送
-
-    if (_send_que.size() > 0) {
-        pending = true;
+    int send_que_size = _send_que.size();
+    if (send_que_size > MAX_SENDQUE) {
+        std::cout << "session: " << m_uuid << " send que fulled, size is " << MAX_SENDQUE << std::endl;
+        return;
     }
 
     _send_que.push(std::make_shared<MsgNode>(msg, max_length));
-
-    if (pending)
+    if (send_que_size > 0) {
         return;
+    }
 
     boost::asio::async_write(m_socket, boost::asio::buffer(_send_que.front()->m_data, _send_que.front()->m_total_len),
                              std::bind(&CSession::HandleWrite, this, std::placeholders::_1, std::placeholders::_2,
@@ -80,8 +79,12 @@ void CSession::HandleRead(const boost::system::error_code& ec, size_t byt_transf
                 copy_len += head_remain;
                 byt_transferred -= head_remain;
                 // 获取头部数据
-                std::size_t data_len = 0;
+                short data_len = 0;
                 memcpy(&data_len, _recv_head_node->m_data, HEAD_LENGTH);
+
+                // 网络字节序转换成本地字节序
+                data_len = boost::asio::detail::socket_ops::network_to_host_short(data_len);
+
                 std::cout << "data_len is : " << data_len << std::endl;
                 // 头部长度非法
                 if (data_len > MAX_LENGTH) {
@@ -184,9 +187,10 @@ void CSession::HandleWrite(const boost::system::error_code& ec, size_t byt_trans
 
         _send_que.pop();
         if (!_send_que.empty()) {
-            auto &msg_node = _send_que.front();
+            auto& msg_node = _send_que.front();
             boost::asio::async_write(m_socket, boost::asio::buffer(msg_node->m_data, msg_node->m_total_len),
-                                     std::bind(&CSession::HandleWrite, this, std::placeholders::_1, std::placeholders::_2,
+                                     std::bind(&CSession::HandleWrite, this, std::placeholders::_1,
+                                               std::placeholders::_2,
                                                _self_shared));
         }
     }

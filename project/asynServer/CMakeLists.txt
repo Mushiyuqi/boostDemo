@@ -11,8 +11,7 @@ add_executable(asynServer main.cpp
         CSession.cpp
         CServer.h
         CServer.cpp
-        MsgNode.h
-        MsgNode.cpp)
+        const.h)
 
 target_include_directories(asynServer PRIVATE ${Boost_INCLUDE_DIRS})
 target_link_directories(asynServer PRIVATE Boost::system Boost::filesystem Boost::thread)
