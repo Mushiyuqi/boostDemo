@@ -1,6 +1,7 @@
 #include <iostream>
 #include <boost/asio.hpp>
 #include <memory>
+#include "msg.pb.h"
 
 const int MAX_LENGTH = 1024 * 2;
 const int HEAD_LENGTH = 2;
@@ -24,15 +25,22 @@ int main() {
         // 发送线程
         std::thread send_thread([&sock]() {
             for (;;) {
-                std::this_thread::sleep_for(std::chrono::milliseconds(2));
-                // std::cout << "begin to send..." << std::endl;
-                const char* request = "hello world!";
-                short request_len = strlen(request);
+                std::this_thread::sleep_for(std::chrono::milliseconds(20));
+
+                // 序列化
+                MsgData msg_data;
+                msg_data.set_id(1001);
+                msg_data.set_data("hello world!");
+                std::string request;
+                msg_data.SerializeToString(&request);
+
+                // 转为网络字节序
+                short request_len = request.length();
                 char send_data[MAX_LENGTH] = {0};
-                //转为网络字节序
                 auto request_host_length = boost::asio::detail::socket_ops::host_to_network_short(request_len);
                 memcpy(send_data, &request_host_length, HEAD_LENGTH);
-                memcpy(send_data + HEAD_LENGTH, request, request_len);
+                memcpy(send_data + HEAD_LENGTH, request.c_str(), request_len);
+
                 boost::asio::write(sock, boost::asio::buffer(send_data, request_len + HEAD_LENGTH));
             }
         });
@@ -40,21 +48,24 @@ int main() {
         //接收线程
         std::thread recv_thread([&sock]() {
             for (;;) {
-                std::this_thread::sleep_for(std::chrono::milliseconds(2));
+                std::this_thread::sleep_for(std::chrono::milliseconds(20));
                 std::cout << "begin to receive..." << std::endl;
+
+                // 转为本地字节序
                 char reply_head[HEAD_LENGTH];
                 size_t reply_length = boost::asio::read(sock, boost::asio::buffer(reply_head, HEAD_LENGTH));
                 short msglen = 0;
                 memcpy(&msglen, reply_head, HEAD_LENGTH);
-                //转为本地字节序
                 msglen = boost::asio::detail::socket_ops::network_to_host_short(msglen);
+
+                // 反序列化
                 char msg[MAX_LENGTH] = {0};
                 size_t msg_length = boost::asio::read(sock, boost::asio::buffer(msg, msglen));
+                MsgData recv_data;
+                recv_data.ParseFromString(msg);
 
-                std::cout << "replay is: ";
-                std::cout.write(msg, msglen) << std::endl;
-                std::cout << "replay len is: " << msglen << std::endl;
-                std::cout << std::endl;
+                std::cout << "msg id is  : " << recv_data.id() << std::endl;
+                std::cout << "msg data is: " << recv_data.data() << std::endl;
             }
         });
 

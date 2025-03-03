@@ -5,6 +5,7 @@
 #include <iostream>
 #include <queue>
 #include "const.h"
+#include "msg.pb.h"
 
 class MsgNode {
     friend class CSession;
@@ -15,7 +16,7 @@ public:
      * @param msg 数据的首地址
      * @param max_len 数据的长度
      */
-    MsgNode(char * msg, short max_len): m_total_len(max_len +  HEAD_LENGTH), m_cur_len(0){
+    MsgNode(const char * msg, const short max_len): m_total_len(max_len +  HEAD_LENGTH), m_cur_len(0){
         m_data = new char[m_total_len+1]();
         // 转为网络字节序
         const unsigned short max_len_host = boost::asio::detail::socket_ops::host_to_network_short(max_len);
@@ -28,7 +29,7 @@ public:
      *  什么都没做的node
      * @param max_len node的长度 HEAD_LENGTH + Data length
      */
-    MsgNode(short max_len):m_total_len(max_len),m_cur_len(0) {
+    MsgNode(const short max_len):m_total_len(max_len),m_cur_len(0) {
         m_data = new char[m_total_len +1]();
     }
 
@@ -82,7 +83,7 @@ public:
     }
 
     // 发送接口
-    void Send(char* msg, std::size_t max_length);
+    void Send(const std::string& msg);
 
     void Start();
 private:

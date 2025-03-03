@@ -1,0 +1,3 @@
+/run/media/root/linuxData/study/boostDemo/cmake-build-debug/CMakeFiles/boostDemo.dir
+/run/media/root/linuxData/study/boostDemo/cmake-build-debug/CMakeFiles/edit_cache.dir
+/run/media/root/linuxData/study/boostDemo/cmake-build-debug/CMakeFiles/rebuild_cache.dir

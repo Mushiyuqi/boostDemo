@@ -22,7 +22,7 @@ void CSession::Start() {
                                        shared_from_this()));
 }
 
-void CSession::Send(char* msg, std::size_t max_length) {
+void CSession::Send(const std::string& msg) {
     std::lock_guard<std::mutex> lock(m_send_lock); // lock_guard 构造时加锁，析构时解锁
     int send_que_size = _send_que.size();
     if (send_que_size > MAX_SENDQUE) {
@@ -30,7 +30,7 @@ void CSession::Send(char* msg, std::size_t max_length) {
         return;
     }
 
-    _send_que.push(std::make_shared<MsgNode>(msg, max_length));
+    _send_que.push(std::make_shared<MsgNode>(msg.c_str(), msg.size()));
     if (send_que_size > 0) {
         return;
     }
@@ -44,9 +44,9 @@ void CSession::HandleRead(const boost::system::error_code& ec, size_t byt_transf
                           std::shared_ptr<CSession>& _self_shared) {
     if (!ec) {
         //debug
-        PrintRecvData(m_data.data(), byt_transferred);
-        const std::chrono::milliseconds dura(2000);
-        std::this_thread::sleep_for(dura);
+        // PrintRecvData(m_data.data(), byt_transferred);
+        // const std::chrono::milliseconds dura(2000);
+        // std::this_thread::sleep_for(dura);
 
 
         // m_data(原始数据) 已经处理的数据
@@ -84,8 +84,8 @@ void CSession::HandleRead(const boost::system::error_code& ec, size_t byt_transf
 
                 // 网络字节序转换成本地字节序
                 data_len = boost::asio::detail::socket_ops::network_to_host_short(data_len);
-
                 std::cout << "data_len is : " << data_len << std::endl;
+
                 // 头部长度非法
                 if (data_len > MAX_LENGTH) {
                     std::cerr << "invalid data length is : " << data_len << std::endl;
@@ -116,10 +116,20 @@ void CSession::HandleRead(const boost::system::error_code& ec, size_t byt_transf
                 copy_len += data_len;
                 byt_transferred -= data_len;
                 _recv_msg_node->m_data[_recv_msg_node->m_total_len] = '\0';
-                // 处理第一条数据
-                std::cout << "receive data is : " << _recv_msg_node->m_data << std::endl;
-                // 此处可以调用Send发送数据
-                Send(_recv_msg_node->m_data, _recv_msg_node->m_total_len);
+
+                // 反序列化
+                MsgData msg_data;
+                msg_data.ParseFromString(_recv_msg_node->m_data);
+                std::cout << "receive msg id is   : " << msg_data.id() << std::endl;
+                std::cout << "receive msg data is : " << msg_data.data() << std::endl;
+
+                // 序列化发送回数据
+                std::string return_str = "server has received msg, msg data is : " + msg_data.data();
+                MsgData msg_return;
+                msg_return.set_id(msg_data.id());
+                msg_return.set_data(return_str);
+                msg_return.SerializeToString(&return_str);
+                Send(return_str);
 
                 // 继续轮询剩余未处理的数据
                 _b_head_parse = false;
@@ -154,8 +164,19 @@ void CSession::HandleRead(const boost::system::error_code& ec, size_t byt_transf
             copy_len += remain_msg;
             _recv_msg_node->m_data[_recv_msg_node->m_total_len] = '\0';
 
-            std::cout << "receive data is : " << _recv_msg_node->m_data << std::endl;
-            Send(_recv_msg_node->m_data, _recv_msg_node->m_total_len);
+            // 反序列化
+            MsgData msg_data;
+            msg_data.ParseFromString(_recv_msg_node->m_data);
+            std::cout << "receive msg id is   : " << msg_data.id() << std::endl;
+            std::cout << "receive msg data is : " << msg_data.data() << std::endl;
+
+            // 序列化发送回数据
+            std::string return_str = "server has received msg, msg data is : " + msg_data.data();
+            MsgData msg_return;
+            msg_return.set_id(msg_data.id());
+            msg_return.set_data(return_str);
+            msg_return.SerializeToString(&return_str);
+            Send(return_str);
 
             // 继续轮询剩余未处理的数据
             _b_head_parse = false;
