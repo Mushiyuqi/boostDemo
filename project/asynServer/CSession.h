@@ -6,6 +6,7 @@
 #include <queue>
 #include "const.h"
 #include "msg.pb.h"
+#include <json/json.h>
 
 class MsgNode {
     friend class CSession;

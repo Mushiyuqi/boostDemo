@@ -22,3 +22,6 @@ find_package(absl REQUIRED)  # 查找 Abseil 库
 target_link_libraries(asynServer absl::log_internal_check_op)
 find_package(Protobuf REQUIRED)
 target_link_libraries(asynServer ${PROTOBUF_LIBRARIES})
+
+# 添加JSONCPP库的依赖
+target_link_libraries(asynServer jsoncpp.so)

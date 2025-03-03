@@ -1512,6 +1512,18 @@
 			],
 			"type" : "PATH",
 			"value" : "/usr/lib/cmake/boost_thread-1.83.0"
+		},
+		{
+			"name" : "jsoncpp_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "The directory containing a CMake configuration file for jsoncpp."
+				}
+			],
+			"type" : "PATH",
+			"value" : "jsoncpp_DIR-NOTFOUND"
 		}
 	],
 	"kind" : "cache",

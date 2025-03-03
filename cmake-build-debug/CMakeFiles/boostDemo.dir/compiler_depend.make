@@ -893,6 +893,7 @@ CMakeFiles/boostDemo.dir/main.cpp.o: /run/media/root/linuxData/study/boostDemo/m
   /usr/include/c++/14.1.1/bits/stl_raw_storage_iter.h \
   /usr/include/c++/14.1.1/bits/stl_relops.h \
   /usr/include/c++/14.1.1/bits/stl_set.h \
+  /usr/include/c++/14.1.1/bits/stl_stack.h \
   /usr/include/c++/14.1.1/bits/stl_tempbuf.h \
   /usr/include/c++/14.1.1/bits/stl_tree.h \
   /usr/include/c++/14.1.1/bits/stl_uninitialized.h \
@@ -975,6 +976,7 @@ CMakeFiles/boostDemo.dir/main.cpp.o: /run/media/root/linuxData/study/boostDemo/m
   /usr/include/c++/14.1.1/set \
   /usr/include/c++/14.1.1/span \
   /usr/include/c++/14.1.1/sstream \
+  /usr/include/c++/14.1.1/stack \
   /usr/include/c++/14.1.1/stdexcept \
   /usr/include/c++/14.1.1/stdlib.h \
   /usr/include/c++/14.1.1/streambuf \
@@ -1066,6 +1068,15 @@ CMakeFiles/boostDemo.dir/main.cpp.o: /run/media/root/linuxData/study/boostDemo/m
   /usr/include/google/protobuf/thread_safe_arena.h \
   /usr/include/google/protobuf/unknown_field_set.h \
   /usr/include/google/protobuf/wire_format_lite.h \
+  /usr/include/json/allocator.h \
+  /usr/include/json/config.h \
+  /usr/include/json/forwards.h \
+  /usr/include/json/json.h \
+  /usr/include/json/json_features.h \
+  /usr/include/json/reader.h \
+  /usr/include/json/value.h \
+  /usr/include/json/version.h \
+  /usr/include/json/writer.h \
   /usr/include/libintl.h \
   /usr/include/limits.h \
   /usr/include/linux/close_range.h \
@@ -5387,33 +5398,19 @@ CMakeFiles/boostDemo.dir/source/syncReadWrite.cpp.o: /run/media/root/linuxData/s
 
 /usr/include/boost/smart_ptr/detail/sp_convertible.hpp:
 
-/usr/include/boost/asio/detail/consuming_buffers.hpp:
+/usr/include/boost/smart_ptr/detail/local_counted_base.hpp:
 
-/usr/include/boost/asio/impl/connect_pipe.ipp:
+/usr/include/boost/smart_ptr/bad_weak_ptr.hpp:
 
-/usr/include/boost/asio/detail/conditionally_enabled_mutex.hpp:
+/usr/include/boost/regex_fwd.hpp:
 
-/usr/include/boost/asio/detail/concurrency_hint.hpp:
+/usr/include/boost/regex/v5/regex_fwd.hpp:
 
-/usr/lib/gcc/x86_64-pc-linux-gnu/14.1.1/include/stddef.h:
+/usr/include/boost/regex/v5/match_flags.hpp:
 
-/usr/include/boost/asio/detail/composed_work.hpp:
+/usr/include/boost/regex/config.hpp:
 
-/usr/include/boost/asio/write.hpp:
-
-/usr/include/boost/asio/detail/chrono_time_traits.hpp:
-
-/usr/include/boost/asio/detail/chrono.hpp:
-
-/usr/include/boost/config/stdlib/libstdcpp3.hpp:
-
-/usr/include/boost/asio/detail/bulk_executor_op.hpp:
-
-/usr/include/boost/date_time/gregorian/gregorian_types.hpp:
-
-/usr/include/boost/mpl/aux_/is_msvc_eti_arg.hpp:
-
-/usr/include/boost/numeric/conversion/detail/preprocessed/numeric_cast_traits_long_long.hpp:
+/usr/include/boost/preprocessor/variadic/size.hpp:
 
 /usr/include/boost/asio/detail/buffer_sequence_adapter.hpp:
 
@@ -5523,8 +5520,6 @@ CMakeFiles/boostDemo.dir/source/syncReadWrite.cpp.o: /run/media/root/linuxData/s
 
 /usr/include/boost/asio/ip/impl/address_v4.ipp:
 
-/usr/include/boost/asio.hpp:
-
 /usr/include/bits/types/sigval_t.h:
 
 /usr/include/boost/asio/basic_waitable_timer.hpp:
@@ -5544,8 +5539,6 @@ CMakeFiles/boostDemo.dir/source/syncReadWrite.cpp.o: /run/media/root/linuxData/s
 /usr/include/bits/types/struct_iovec.h:
 
 /usr/include/bits/sigthread.h:
-
-/usr/include/c++/14.1.1/cstring:
 
 /usr/include/bits/signum-arch.h:
 
@@ -5595,13 +5588,43 @@ CMakeFiles/boostDemo.dir/source/syncReadWrite.cpp.o: /run/media/root/linuxData/s
 
 /usr/include/arpa/inet.h:
 
+/usr/include/json/version.h:
+
+/usr/include/boost/date_time/gregorian/greg_ymd.hpp:
+
+/usr/include/absl/strings/internal/cord_rep_btree_navigator.h:
+
+/usr/include/boost/asio.hpp:
+
+/usr/include/json/reader.h:
+
+/usr/include/json/allocator.h:
+
+/usr/include/c++/14.1.1/bits/iterator_concepts.h:
+
 /usr/include/c++/14.1.1/queue:
 
 /usr/include/bits/byteswap.h:
 
+/usr/include/c++/14.1.1/bits/stl_stack.h:
+
+/usr/include/absl/hash/internal/low_level_hash.h:
+
+/usr/include/boost/asio/detail/thread_group.hpp:
+
+/usr/include/boost/asio/detail/chrono_time_traits.hpp:
+
 /run/media/root/linuxData/study/boostDemo/include/endPoint.h:
 
+/usr/include/boost/regex/user.hpp:
+
+/usr/include/boost/cerrno.hpp:
+
 /usr/lib/gcc/x86_64-pc-linux-gnu/14.1.1/include/stdint.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/14.1.1/include/stddef.h:
+
+/usr/include/boost/asio/detail/concurrency_hint.hpp:
 
 /usr/include/asm/posix_types.h:
 
@@ -5614,8 +5637,6 @@ CMakeFiles/boostDemo.dir/source/syncReadWrite.cpp.o: /run/media/root/linuxData/s
 /usr/include/boost/predef/hardware/simd/ppc/versions.h:
 
 /usr/include/time.h:
-
-/usr/include/c++/14.1.1/bits/iterator_concepts.h:
 
 /run/media/root/linuxData/study/boostDemo/main.cpp:
 
@@ -5650,10 +5671,6 @@ CMakeFiles/boostDemo.dir/source/syncReadWrite.cpp.o: /run/media/root/linuxData/s
 /usr/include/c++/14.1.1/bits/stl_iterator_base_types.h:
 
 /usr/include/boost/asio/detail/timer_queue.hpp:
-
-/usr/include/c++/14.1.1/bits/stl_tempbuf.h:
-
-/usr/include/google/protobuf/stubs/callback.h:
 
 /usr/include/boost/type_traits/is_floating_point.hpp:
 
@@ -5719,8 +5736,6 @@ CMakeFiles/boostDemo.dir/source/syncReadWrite.cpp.o: /run/media/root/linuxData/s
 
 /usr/include/boost/asio/system_executor.hpp:
 
-/usr/include/boost/regex/config.hpp:
-
 /usr/include/c++/14.1.1/backward/auto_ptr.h:
 
 /usr/lib/gcc/x86_64-pc-linux-gnu/14.1.1/include/stdarg.h:
@@ -5730,6 +5745,8 @@ CMakeFiles/boostDemo.dir/source/syncReadWrite.cpp.o: /run/media/root/linuxData/s
 /usr/include/boost/asio/detail/string_view.hpp:
 
 /usr/include/stdint.h:
+
+/usr/include/json/json_features.h:
 
 /usr/include/boost/asio/execution/prefer_only.hpp:
 
@@ -5792,6 +5809,8 @@ CMakeFiles/boostDemo.dir/source/syncReadWrite.cpp.o: /run/media/root/linuxData/s
 /usr/include/c++/14.1.1/tr1/poly_hermite.tcc:
 
 /usr/include/boost/asio/buffer.hpp:
+
+/usr/include/c++/14.1.1/stack:
 
 /usr/include/bits/local_lim.h:
 
@@ -5987,6 +6006,14 @@ CMakeFiles/boostDemo.dir/source/syncReadWrite.cpp.o: /run/media/root/linuxData/s
 
 /usr/include/c++/14.1.1/bits/stl_uninitialized.h:
 
+/usr/include/google/protobuf/stubs/callback.h:
+
+/usr/include/c++/14.1.1/bits/stl_tempbuf.h:
+
+/usr/include/boost/asio/detail/chrono.hpp:
+
+/usr/include/boost/config/stdlib/libstdcpp3.hpp:
+
 /usr/lib/gcc/x86_64-pc-linux-gnu/14.1.1/include/limits.h:
 
 /usr/include/syscall.h:
@@ -6133,6 +6160,8 @@ CMakeFiles/boostDemo.dir/source/syncReadWrite.cpp.o: /run/media/root/linuxData/s
 
 /usr/include/c++/14.1.1/bits/stl_algo.h:
 
+/usr/include/json/writer.h:
+
 /usr/include/bits/sched.h:
 
 /usr/include/asm-generic/bitsperlong.h:
@@ -6176,6 +6205,8 @@ CMakeFiles/boostDemo.dir/source/syncReadWrite.cpp.o: /run/media/root/linuxData/s
 /usr/include/absl/log/internal/log_impl.h:
 
 /usr/include/c++/14.1.1/bits/node_handle.h:
+
+/usr/include/json/value.h:
 
 /usr/include/absl/strings/internal/resize_uninitialized.h:
 
@@ -6339,8 +6370,6 @@ CMakeFiles/boostDemo.dir/source/syncReadWrite.cpp.o: /run/media/root/linuxData/s
 
 /usr/include/c++/14.1.1/bits/stl_heap.h:
 
-/usr/include/absl/strings/internal/cord_rep_btree_navigator.h:
-
 /run/media/root/linuxData/study/boostDemo/source/asynReadWrite.cpp:
 
 /usr/include/absl/functional/function_ref.h:
@@ -6487,13 +6516,11 @@ CMakeFiles/boostDemo.dir/source/syncReadWrite.cpp.o: /run/media/root/linuxData/s
 
 /usr/include/c++/14.1.1/bits/fs_dir.h:
 
+/usr/include/boost/asio/detail/conditionally_enabled_mutex.hpp:
+
 /usr/include/absl/functional/internal/any_invocable.h:
 
 /usr/include/bits/siginfo-consts.h:
-
-/usr/include/boost/predef/architecture/ppc.h:
-
-/usr/include/absl/base/internal/identity.h:
 
 /usr/include/absl/strings/internal/stringify_sink.h:
 
@@ -6597,10 +6624,6 @@ CMakeFiles/boostDemo.dir/source/syncReadWrite.cpp.o: /run/media/root/linuxData/s
 
 /usr/include/absl/container/internal/raw_hash_map.h:
 
-/usr/include/absl/hash/internal/low_level_hash.h:
-
-/usr/include/boost/asio/detail/thread_group.hpp:
-
 /usr/include/google/protobuf/unknown_field_set.h:
 
 /usr/include/boost/date_time/period.hpp:
@@ -6695,6 +6718,8 @@ CMakeFiles/boostDemo.dir/source/syncReadWrite.cpp.o: /run/media/root/linuxData/s
 
 /usr/include/boost/predef/architecture/m68k.h:
 
+/usr/include/json/json.h:
+
 /usr/include/absl/numeric/int128.h:
 
 /usr/include/bits/semaphore.h:
@@ -6779,6 +6804,14 @@ CMakeFiles/boostDemo.dir/source/syncReadWrite.cpp.o: /run/media/root/linuxData/s
 
 /usr/include/bits/types/FILE.h:
 
+/usr/include/boost/shared_ptr.hpp:
+
+/usr/include/absl/strings/internal/str_format/extension.h:
+
+/usr/include/asm-generic/int-ll64.h:
+
+/usr/include/boost/asio/ip/detail/socket_option.hpp:
+
 /usr/include/c++/14.1.1/bits/ranges_algo.h:
 
 /usr/include/c++/14.1.1/x86_64-pc-linux-gnu/bits/ctype_inline.h:
@@ -6810,6 +6843,8 @@ CMakeFiles/boostDemo.dir/source/syncReadWrite.cpp.o: /run/media/root/linuxData/s
 /usr/include/c++/14.1.1/bits/nested_exception.h:
 
 /usr/include/absl/container/internal/inlined_vector.h:
+
+/usr/include/c++/14.1.1/cstring:
 
 /usr/include/bits/types/clock_t.h:
 
@@ -7017,8 +7052,6 @@ CMakeFiles/boostDemo.dir/source/syncReadWrite.cpp.o: /run/media/root/linuxData/s
 
 /usr/include/boost/asio/detail/socket_holder.hpp:
 
-/usr/include/boost/regex/v5/regex_fwd.hpp:
-
 /usr/include/boost/mpl/aux_/preprocessor/params.hpp:
 
 /usr/include/boost/numeric/conversion/detail/bounds.hpp:
@@ -7079,6 +7112,12 @@ CMakeFiles/boostDemo.dir/source/syncReadWrite.cpp.o: /run/media/root/linuxData/s
 
 /usr/include/c++/14.1.1/forward_list:
 
+/usr/include/boost/predef/architecture/ppc.h:
+
+/usr/include/absl/base/internal/identity.h:
+
+/usr/include/json/forwards.h:
+
 /usr/include/boost/date_time/date_clock_device.hpp:
 
 /usr/include/absl/strings/internal/cordz_handle.h:
@@ -7136,6 +7175,22 @@ CMakeFiles/boostDemo.dir/source/syncReadWrite.cpp.o: /run/media/root/linuxData/s
 /usr/include/c++/14.1.1/bits/stl_multiset.h:
 
 /usr/include/boost/asio/detail/cstddef.hpp:
+
+/usr/include/boost/asio/detail/bulk_executor_op.hpp:
+
+/usr/include/boost/date_time/gregorian/gregorian_types.hpp:
+
+/usr/include/boost/mpl/aux_/is_msvc_eti_arg.hpp:
+
+/usr/include/boost/numeric/conversion/detail/preprocessed/numeric_cast_traits_long_long.hpp:
+
+/usr/include/boost/asio/detail/composed_work.hpp:
+
+/usr/include/boost/asio/write.hpp:
+
+/usr/include/boost/asio/detail/consuming_buffers.hpp:
+
+/usr/include/boost/asio/impl/connect_pipe.ipp:
 
 /usr/include/absl/strings/internal/str_format/arg.h:
 
@@ -7201,11 +7256,9 @@ CMakeFiles/boostDemo.dir/source/syncReadWrite.cpp.o: /run/media/root/linuxData/s
 
 /usr/include/boost/predef/library/c/vms.h:
 
-/usr/include/boost/regex_fwd.hpp:
+/usr/include/boost/core/enable_if.hpp:
 
 /usr/include/boost/asio/detail/config.hpp:
-
-/usr/include/boost/core/enable_if.hpp:
 
 /usr/include/boost/asio/detail/impl/null_event.ipp:
 
@@ -7242,8 +7295,6 @@ CMakeFiles/boostDemo.dir/source/syncReadWrite.cpp.o: /run/media/root/linuxData/s
 /usr/include/boost/asio/detail/impl/strand_service.hpp:
 
 /usr/include/boost/asio/detail/impl/throw_error.ipp:
-
-/usr/include/boost/date_time/gregorian/greg_ymd.hpp:
 
 /usr/include/boost/asio/detail/initiate_defer.hpp:
 
@@ -7462,8 +7513,6 @@ CMakeFiles/boostDemo.dir/source/syncReadWrite.cpp.o: /run/media/root/linuxData/s
 /usr/include/boost/asio/execution/context.hpp:
 
 /usr/include/boost/asio/execution/detail/as_invocable.hpp:
-
-/usr/include/boost/smart_ptr/detail/local_counted_base.hpp:
 
 /usr/include/boost/asio/execution/detail/submit_receiver.hpp:
 
@@ -7957,8 +8006,6 @@ CMakeFiles/boostDemo.dir/source/syncReadWrite.cpp.o: /run/media/root/linuxData/s
 
 /usr/include/boost/predef/architecture/x86/32.h:
 
-/usr/include/boost/smart_ptr/bad_weak_ptr.hpp:
-
 /usr/include/boost/date_time/c_time.hpp:
 
 /usr/include/boost/predef/architecture/x86/64.h:
@@ -8093,6 +8140,10 @@ CMakeFiles/boostDemo.dir/source/syncReadWrite.cpp.o: /run/media/root/linuxData/s
 
 /usr/include/boost/mpl/aux_/static_cast.hpp:
 
+/usr/include/boost/smart_ptr/detail/operator_bool.hpp:
+
+/usr/include/boost/mpl/aux_/type_wrapper.hpp:
+
 /usr/include/boost/mpl/aux_/value_wknd.hpp:
 
 /usr/include/boost/predef/language/stdc.h:
@@ -8102,6 +8153,8 @@ CMakeFiles/boostDemo.dir/source/syncReadWrite.cpp.o: /run/media/root/linuxData/s
 /usr/include/boost/mpl/aux_/comparison_op.hpp:
 
 /usr/include/boost/mpl/bool_fwd.hpp:
+
+/usr/include/json/config.h:
 
 /usr/include/boost/asio/system_timer.hpp:
 
@@ -8426,23 +8479,3 @@ CMakeFiles/boostDemo.dir/source/syncReadWrite.cpp.o: /run/media/root/linuxData/s
 /usr/include/c++/14.1.1/bits/parse_numbers.h:
 
 /usr/include/boost/preprocessor/variadic/has_opt.hpp:
-
-/usr/include/boost/preprocessor/variadic/size.hpp:
-
-/usr/include/boost/cerrno.hpp:
-
-/usr/include/boost/regex/user.hpp:
-
-/usr/include/boost/regex/v5/match_flags.hpp:
-
-/usr/include/absl/strings/internal/str_format/extension.h:
-
-/usr/include/asm-generic/int-ll64.h:
-
-/usr/include/boost/asio/ip/detail/socket_option.hpp:
-
-/usr/include/boost/shared_ptr.hpp:
-
-/usr/include/boost/mpl/aux_/type_wrapper.hpp:
-
-/usr/include/boost/smart_ptr/detail/operator_bool.hpp:

@@ -1,28 +1,24 @@
 #include <iostream>
+#include <string>
 #include "include/endPoint.h"
 #include <queue>
 #include <memory>
 #include "example.pb.h"  // 包含生成的头文件
+#include <json/json.h>
 
 int main() {
-    Book book;
-    book.set_name("CPP programing");
-    book.set_pages(100);
-    book.set_price(200);
 
-    // 将book序列化成二进制
-    std::string bookstr;
-    book.SerializeToString(&bookstr);
-    std::cout << "serialize str is " << bookstr << std::endl;
+    Json::Value root;
+    root["id"] = 1001;
+    root["data"] = "hello world";
+    std::string request = root.toStyledString();
+    std::cout << "request is : " << request << std::endl;
 
-    // 将bookstr反序列化到book2中
-    Book book2;
-    book2.ParseFromString(bookstr);
-
-    std::cout << "book2" << std::endl
-    << "name is " << book2.name() << std::endl
-    << "price is " << book2.price() << std::endl
-    << "pages is " << book2.pages() << std::endl;
+    Json::Value root2;
+    Json::Reader reader;
+    reader.parse(request, root2);
+    std::cout << "msg id is   : " << root2["id"].asInt() << std::endl;
+    std::cout << "msg data is : " << root2["data"].asString() << std::endl;
 
     return 0;
 }
