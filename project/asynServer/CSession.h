@@ -32,6 +32,7 @@ public:
      */
     MsgNode(const short max_len):m_total_len(max_len),m_cur_len(0) {
         m_data = new char[m_total_len +1]();
+        m_data[m_total_len] = '\0';// 给m_data添加结束符
     }
 
     /**
@@ -64,13 +65,7 @@ private:
 class CServer;
 class CSession: public std::enable_shared_from_this<CSession>{
 public:
-    CSession(boost::asio::io_context& ioc, CServer* server): m_socket(ioc), _server(server){
-        boost::uuids::uuid a_uuid = boost::uuids::random_generator()();
-        m_uuid = boost::uuids::to_string(a_uuid);
-        std::cout<< "A Session be created " << "uuid is " << m_uuid << std::endl;
-
-        _recv_head_node = std::make_shared<MsgNode>(HEAD_LENGTH);
-    }
+    CSession(boost::asio::io_context& ioc, CServer* server);
 
     ~CSession(){
         std::cerr<< "A Session died " << "uuid is " << m_uuid << std::endl;
@@ -79,6 +74,7 @@ public:
     boost::asio::ip::tcp::socket& Socket(){
         return m_socket;
     }
+
     std::string& getUuid(){
         return m_uuid;
     }
@@ -91,22 +87,25 @@ private:
     /// 当对端关闭时 服务端还会再调用一次读事件(tcp)
 
     // 读回调
-    void HandleRead(const boost::system::error_code& ec, size_t byt_transferred, std::shared_ptr<CSession>& _self_shared);
+    void HandleReadHead(const boost::system::error_code& ec, size_t byt_transferred, std::shared_ptr<CSession>& _self_shared);
+    void HandleReadMsg(const boost::system::error_code& ec, size_t byt_transferred, std::shared_ptr<CSession>& _self_shared);
     // 写回调
     void HandleWrite(const boost::system::error_code& ec, size_t byt_transferred, std::shared_ptr<CSession> _self_shared);
 
     // 打印数据
     static void PrintRecvData(const char* data, int length);
 
+    void Close();
+
 private:
-    //enum {max_length = 1024};
+    // socket 是否关闭
+    bool m_b_close;
 
     boost::asio::ip::tcp::socket m_socket; // 自己管理的socket
     CServer* _server; // 用于清除存储在 CServer 中的自己
     std::string m_uuid; // 自己的编号
 
     // 接收消息的结构
-    std::array<char, MAX_LENGTH> m_data; // 原始数据
     bool _b_head_parse; // 消息头部（数据长度）是否处理
     std::shared_ptr<MsgNode> _recv_msg_node;  // 收到的消息体信息
     std::shared_ptr<MsgNode> _recv_head_node; // 收到的头部结构
@@ -114,8 +113,6 @@ private:
     // 发送队列
     std::queue<std::shared_ptr<MsgNode>> _send_que;
 
-    /// 锁
+    // 锁
     std::mutex m_send_lock;
-
-    bool test = false;
 };
