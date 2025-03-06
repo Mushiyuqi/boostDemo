@@ -5,6 +5,3 @@
 #define HEAD_TOTAL_LEN 4    // 头部总长度
 #define HEAD_ID_LENGTH 2    // 头部ID的长度
 #define HEAD_DATA_LEN 2     // 头部数据长度
-
-#define MAX_RECVQUE 10000 // 接收队列的最大长度
-#define MAX_SENDQUE 1000 //发送队列的最大长度

@@ -7,7 +7,10 @@ set(CMAKE_CXX_STANDARD 23)
 add_executable(syncClient
         main.cpp
         msg.pb.cc
-        msg.pb.h)
+        msg.pb.h
+        MsgNode.h
+        MsgNode.cpp
+        const.h)
 
 # 添加Boost库的依赖
 find_package(Boost REQUIRED COMPONENTS system filesystem thread)

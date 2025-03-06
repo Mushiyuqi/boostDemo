@@ -1,11 +1,9 @@
 #include <iostream>
 #include <boost/asio.hpp>
 #include <memory>
-#include "msg.pb.h"
 #include <json/json.h>
-
-const int MAX_LENGTH = 1024 * 2;
-const int HEAD_LENGTH = 2;
+#include "msg.pb.h"
+#include "MsgNode.h"
 
 int main() {
     try {
@@ -35,14 +33,9 @@ int main() {
                 std::string request = root.toStyledString();
 
                 // 转为网络字节序
-                short request_len = request.length();
-                char send_data[MAX_LENGTH] = {0};
-                auto request_host_length = boost::asio::detail::socket_ops::host_to_network_short(request_len);
+                SendNode send_node(request.c_str(), request.length(), static_cast<short>(root["id"].asInt()));
 
-                memcpy(send_data, &request_host_length, HEAD_LENGTH);
-                memcpy(send_data + HEAD_LENGTH, request.c_str(), request_len);
-
-                boost::asio::write(sock, boost::asio::buffer(send_data, request_len + HEAD_LENGTH));
+                boost::asio::write(sock, boost::asio::buffer(send_node.m_data, send_node.m_total_len));
             }
         });
 
@@ -53,18 +46,23 @@ int main() {
                 std::cout << "begin to receive..." << std::endl;
 
                 // 转为本地字节序
-                char reply_head[HEAD_LENGTH];
-                size_t reply_length = boost::asio::read(sock, boost::asio::buffer(reply_head, HEAD_LENGTH));
+                char reply_head[HEAD_TOTAL_LEN];
+                size_t reply_length = boost::asio::read(sock, boost::asio::buffer(reply_head, HEAD_TOTAL_LEN));
+
+                short id = 0;
+                memcpy(&id, reply_head, HEAD_ID_LENGTH);
+                id = boost::asio::detail::socket_ops::network_to_host_short(id);
+
                 short msglen = 0;
-                memcpy(&msglen, reply_head, HEAD_LENGTH);
+                memcpy(&msglen, reply_head + HEAD_ID_LENGTH, HEAD_DATA_LEN);
                 msglen = boost::asio::detail::socket_ops::network_to_host_short(msglen);
 
                 // 反序列化
-                char msg[MAX_LENGTH] = {0};
-                size_t msg_length = boost::asio::read(sock, boost::asio::buffer(msg, msglen));
+                RecvNode recv_node(msglen, id);
+                size_t msg_length = boost::asio::read(sock, boost::asio::buffer(recv_node.m_data, recv_node.m_total_len));
                 Json::Value root;
                 Json::Reader reader;
-                reader.parse(msg, msg + msglen, root);
+                reader.parse(recv_node.m_data, recv_node.m_data + recv_node.m_total_len, root);
 
                 std::cout << "msg id is  : " << root["id"].asInt() << std::endl;
                 std::cout << "msg data is: " << root["data"].asString() << std::endl;

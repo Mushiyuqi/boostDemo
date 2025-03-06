@@ -4,56 +4,10 @@
 #include <boost/uuid/uuid_io.hpp>
 #include <iostream>
 #include <queue>
+#include <json/json.h>
 #include "const.h"
 #include "msg.pb.h"
-#include <json/json.h>
-
-class MsgNode {
-    friend class CSession;
-public:
-    /**
-     * 为记录长度预留了空间的node
-     * 用于发送一整个完整的包
-     * @param msg 数据的首地址
-     * @param max_len 数据的长度
-     */
-    MsgNode(const char * msg, const short max_len): m_total_len(max_len +  HEAD_LENGTH), m_cur_len(0){
-        m_data = new char[m_total_len+1]();
-        // 转为网络字节序
-        const unsigned short max_len_host = boost::asio::detail::socket_ops::host_to_network_short(max_len);
-        memcpy(m_data, &max_len_host, HEAD_LENGTH);// 将消息长度写入m_data
-        memcpy(m_data+ HEAD_LENGTH, msg, max_len);// 将消息内容写入m_data
-        m_data[m_total_len] = '\0';// 给m_data添加结束符
-    }
-
-    /**
-     *  什么都没做的node
-     * @param max_len node的长度 HEAD_LENGTH + Data length
-     */
-    MsgNode(const short max_len):m_total_len(max_len),m_cur_len(0) {
-        m_data = new char[m_total_len +1]();
-        m_data[m_total_len] = '\0';// 给m_data添加结束符
-    }
-
-    /**
-     * 释放m_data
-     */
-    ~MsgNode() {
-        delete[] m_data;
-    }
-
-    /**
-     * 重置 m_data 就不用再去开辟 m_data 了
-     */
-    void Clear() {
-        ::memset(m_data, 0, m_total_len);
-        m_cur_len = 0;
-    }
-private:
-    short m_cur_len;
-    short m_total_len;
-    char* m_data;
-};
+#include "MsgNode.h"
 
 /**
  * shared_ptr 是通过 = 传参 等方式来共享一块区域 这样创建的新的ptr拥有相同的计数 本质还是一个智能指针管理一个区域
@@ -80,7 +34,8 @@ public:
     }
 
     // 发送接口
-    void Send(const std::string& msg);
+    void Send(const std::string& msg, short id);
+    void Send(const char* msg, int max_len, short id);
 
     void Start();
 private:
@@ -106,12 +61,11 @@ private:
     std::string m_uuid; // 自己的编号
 
     // 接收消息的结构
-    bool _b_head_parse; // 消息头部（数据长度）是否处理
-    std::shared_ptr<MsgNode> _recv_msg_node;  // 收到的消息体信息
     std::shared_ptr<MsgNode> _recv_head_node; // 收到的头部结构
+    std::shared_ptr<RecvNode> _recv_msg_node;  // 收到的消息体信息
 
     // 发送队列
-    std::queue<std::shared_ptr<MsgNode>> _send_que;
+    std::queue<std::shared_ptr<SendNode>> _send_que;
 
     // 锁
     std::mutex m_send_lock;
