@@ -5,6 +5,8 @@
 #include <json/json.h>
 #include "const.h"
 
+class LogicSystem;
+
 class MsgNode {
     friend class CSession;
 
@@ -39,6 +41,7 @@ public:
 };
 
 class RecvNode : public MsgNode {
+    friend class LogicSystem;
 public:
     RecvNode(short max_len, short msg_id);
 private:
@@ -46,6 +49,7 @@ private:
 };
 
 class SendNode : public MsgNode {
+    friend class LogicSystem;
 public:
     SendNode(const char* msg, short max_len, short msg_id);
 private:

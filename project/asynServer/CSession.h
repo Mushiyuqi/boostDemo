@@ -70,3 +70,15 @@ private:
     // 锁
     std::mutex m_send_lock;
 };
+
+class LogicSystem;
+class LogicNode {
+    // 使 LogicSystem 随意访问 LogicNode
+    friend class LogicSystem;
+public:
+    // CSession 传过来 保证 CSession 不会意外被释放
+    LogicNode(std::shared_ptr<CSession>, std::shared_ptr<RecvNode>);
+private:
+    std::shared_ptr<CSession> _session;
+    std::shared_ptr<RecvNode> _recvnode;
+};

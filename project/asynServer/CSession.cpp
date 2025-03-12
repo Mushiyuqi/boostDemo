@@ -2,6 +2,8 @@
 #include "CServer.h"
 #include <iomanip>
 #include <thread>
+#include <utility>
+#include "LogicSystem.h"
 
 void CSession::PrintRecvData(const char* data, const int length) {
     std::stringstream ss;
@@ -130,17 +132,8 @@ void CSession::HandleReadMsg(const boost::system::error_code& ec, size_t byt_tra
         // 原始数据
         // PrintRecvData(_recv_msg_node->m_data, byt_transferred);
 
-        // 反序列化
-        Json::Value msg_data;
-        Json::Reader reader;
-        reader.parse(_recv_msg_node->m_data, _recv_msg_node->m_data + _recv_msg_node->m_total_len, msg_data);
-        std::cout << "msg id is  : " << msg_data["id"].asInt() << std::endl;
-        std::cout << "msg data is: " << msg_data["data"].asString() << std::endl;
-
-        // 序列化发送回数据
-        msg_data["data"] = "server has received msg, msg data is : " + msg_data["data"].asString();
-        std::string return_str = msg_data.toStyledString();
-        Send(return_str, msg_data["id"].asInt());
+        // 将数据放入逻辑队列
+        LogicSystem::GetInstance()->PostMsgToQue(std::make_shared<LogicNode>(shared_from_this(), _recv_msg_node));
 
         //再次接收头部数据
         Start();
@@ -173,4 +166,8 @@ void CSession::HandleWrite(const boost::system::error_code& ec, size_t byt_trans
         Close();
         _server->clearSession(m_uuid);
     }
+}
+
+LogicNode::LogicNode(std::shared_ptr<CSession> session, std::shared_ptr<RecvNode> recvnode):
+    _session(std::move(session)), _recvnode(std::move(recvnode)) {
 }

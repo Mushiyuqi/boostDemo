@@ -8,3 +8,7 @@
 
 #define MAX_RECVQUE 10000 // 接收队列的最大长度
 #define MAX_SENDQUE 1000 //发送队列的最大长度
+
+enum MSG_IDS {
+    MSG_HELLO_WORlD = 1001
+};
