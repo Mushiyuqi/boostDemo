@@ -1663,4 +1663,6 @@ CMakeFiles/asynServer.dir/CSession.cpp.o: \
  /run/media/root/linuxData/study/boostDemo/project/asynServer/MsgNode.h \
  /run/media/root/linuxData/study/boostDemo/project/asynServer/CServer.h \
  /usr/include/c++/14.1.1/thread \
- /usr/include/c++/14.1.1/bits/this_thread_sleep.h
+ /usr/include/c++/14.1.1/bits/this_thread_sleep.h \
+ /run/media/root/linuxData/study/boostDemo/project/asynServer/LogicSystem.h \
+ /run/media/root/linuxData/study/boostDemo/project/asynServer/Singleton.hpp

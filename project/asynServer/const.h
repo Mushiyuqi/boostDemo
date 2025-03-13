@@ -12,3 +12,5 @@
 enum MSG_IDS {
     MSG_HELLO_WORlD = 1001
 };
+
+#define THREAD_NUM 4    // 运行io_context的线程数

@@ -1,25 +1,54 @@
 #include <iostream>
-#include "CServer.h"
 #include <thread>
+#include <csignal>
+#include <mutex>
+#include "LogicSystem.h"
+#include "CServer.h"
 
-boost::asio::io_context ioc;
-CServer s(ioc, 10086);
+bool bstop = false;
+std::condition_variable cond_quit;
+std::mutex mutex_quit;
 
-void net(){
-    try{
-        /// 开启事件循环
-        ioc.run();
-    }catch (std::exception& e){
-        std::cerr << "Exception" << e.what() << std::endl;
-        return;
+// 处理退出信号
+void sig_handler(const int sig) {
+    if (sig == SIGINT || sig == SIGTERM) {
+        std::unique_lock<std::mutex> lock(mutex_quit);
+        bstop = true;
+        // 唤醒主线程
+        cond_quit.notify_one();
     }
 }
 
 int main() {
-    std::shared_ptr<std::thread> t1 = std::make_shared<std::thread>(net);
-    t1->join();
+    try{
+        // 让逻辑系统的线程变成主线程的子线程
+        LogicSystem::GetInstance();
 
-    // std::shared_ptr<std::thread> t2 = std::make_shared<std::thread>(net);
-    // t2->join();
+        boost::asio::io_context io_context;
+        std::thread net_work_thread([&io_context]() {
+            CServer server(io_context, 10086);
+            // 创建一个线程池
+            boost::asio::thread_pool pool(THREAD_NUM);
+            for (int i = 0; i < 8; ++i) {
+                boost::asio::post(pool, [&io_context]() { io_context.run();});
+            }
+        });
+
+        // 注册信号
+        std::signal(SIGINT, sig_handler);
+        std::signal(SIGTERM, sig_handler);
+
+        while (!bstop) {
+            // 挂起主线程
+            std::unique_lock<std::mutex> lock(mutex_quit);
+            cond_quit.wait(lock);
+        }
+
+        io_context.stop();
+        net_work_thread.join();
+
+    }catch (std::exception &e) {
+        std::cerr << "Exception : " << e.what() << std::endl;
+    }
     return 0;
 }
