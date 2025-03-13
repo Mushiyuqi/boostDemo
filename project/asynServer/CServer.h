@@ -9,10 +9,10 @@ class CSession;
 class CServer{
 public:
     CServer(boost::asio::io_context& ioc, short port);
-    void clearSession(std::string uuid);
+    void ClearSession(std::string uuid);
 private:
-    void start_accept();
-    void handle_accept(std::shared_ptr<CSession> new_session, const boost::system::error_code& ec);
+    void StartAccept();
+    void HandleAccept(std::shared_ptr<CSession> new_session, const boost::system::error_code& ec);
 
 private:
     boost::asio::io_context& _ioc;

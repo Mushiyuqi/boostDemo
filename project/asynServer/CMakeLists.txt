@@ -15,7 +15,9 @@ add_executable(asynServer main.cpp
         MsgNode.cpp
         Singleton.hpp
         LogicSystem.h
-        LogicSystem.cpp)
+        LogicSystem.cpp
+        AsioIOServicePool.h
+        AsioIOServicePool.cpp)
 
 # 添加Boost库的依赖
 find_package(Boost REQUIRED COMPONENTS system filesystem thread)

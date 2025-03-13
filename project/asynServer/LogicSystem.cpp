@@ -6,6 +6,8 @@ LogicSystem::LogicSystem(): m_b_stop(false) {
 }
 
 LogicSystem::~LogicSystem() {
+    std::cerr << "LogicSystem destruct " << std::endl;
+
     // 设置结束标志
     m_b_stop = true;
     // 唤醒工作线程

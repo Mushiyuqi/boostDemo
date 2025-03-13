@@ -79,7 +79,7 @@ void CSession::HandleReadHead(const boost::system::error_code& ec, size_t byt_tr
         if (byt_transferred < HEAD_TOTAL_LEN) {
             std::cout << "session: " << m_uuid << " recv head error, size is " << byt_transferred << std::endl;
             Close();
-            _server->clearSession(m_uuid);
+            _server->ClearSession(m_uuid);
             return;
         }
 
@@ -92,7 +92,7 @@ void CSession::HandleReadHead(const boost::system::error_code& ec, size_t byt_tr
         if (id > MAX_RECVQUE) {
             std::cerr << "invalid id is : " << id << std::endl;
             Close();
-            _server->clearSession(m_uuid);
+            _server->ClearSession(m_uuid);
             return;
         }
 
@@ -105,7 +105,7 @@ void CSession::HandleReadHead(const boost::system::error_code& ec, size_t byt_tr
         if (data_len > MAX_LENGTH) {
             std::cerr << "invalid data length is : " << data_len << std::endl;
             Close();
-            _server->clearSession(m_uuid);
+            _server->ClearSession(m_uuid);
             return;
         }
 
@@ -122,7 +122,7 @@ void CSession::HandleReadHead(const boost::system::error_code& ec, size_t byt_tr
     else {
         std::cerr << "handle read failed, error is " << ec.what() << std::endl;
         Close();
-        _server->clearSession(m_uuid);
+        _server->ClearSession(m_uuid);
     }
 }
 
@@ -141,7 +141,7 @@ void CSession::HandleReadMsg(const boost::system::error_code& ec, size_t byt_tra
     else {
         std::cerr << "handle read msg failed,  error is " << ec.what() << std::endl;
         Close();
-        _server->clearSession(m_uuid);
+        _server->ClearSession(m_uuid);
     }
 }
 
@@ -164,7 +164,7 @@ void CSession::HandleWrite(const boost::system::error_code& ec, size_t byt_trans
         std::cerr << "handle write failed, error code is " << ec.value() << ", message is " << ec.message() <<
             std::endl;
         Close();
-        _server->clearSession(m_uuid);
+        _server->ClearSession(m_uuid);
     }
 }
 
