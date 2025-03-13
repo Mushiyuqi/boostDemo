@@ -13,4 +13,5 @@ enum MSG_IDS {
     MSG_HELLO_WORlD = 1001
 };
 
-#define THREAD_NUM 4    // 运行io_context的线程数
+#define MAX_THREAD_NUM 64 // 线程池的最大线程数
+#define THREAD_NUM 16    // 运行io_context的线程数

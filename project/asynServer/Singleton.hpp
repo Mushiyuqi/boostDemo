@@ -15,7 +15,7 @@ protected:
 
 public:
     ~Singleton() {
-        std::cout << "this is singleton destruct" << std::endl;
+        std::cerr << "this is singleton destruct" << std::endl;
     }
 
     /**
