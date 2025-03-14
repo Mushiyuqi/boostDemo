@@ -3,7 +3,7 @@
 #include <csignal>
 #include <mutex>
 #include "LogicSystem.h"
-#include "AsioIOServicePool.h"
+#include "AsioIOContextPool.h"
 #include "AsioThreadPool.h"
 #include "CServer.h"
 
@@ -13,7 +13,7 @@ int main() {
         // 让逻辑系统的线程变成主线程的子线程
         LogicSystem::GetInstance();
 
-        // AsioIOServicePool::GetInstance();    初始化服务池
+        // AsioIOContextPool::GetInstance();    初始化服务池
         // AsioThreadPool::GetInstance();       初始化线程池
         SERVICE_POOL_MODEL::GetInstance();
 

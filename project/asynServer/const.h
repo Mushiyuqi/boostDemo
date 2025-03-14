@@ -14,4 +14,4 @@ enum MSG_IDS {
 };
 
 // io_context 多线程模型
-#define SERVICE_POOL_MODEL AsioThreadPool     // AsioIOServicePool  or  AsioThreadPool
+#define SERVICE_POOL_MODEL AsioIOContextPool     // AsioIOContextPool  or  AsioThreadPool

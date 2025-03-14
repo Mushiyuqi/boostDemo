@@ -1,6 +1,6 @@
 #include "CServer.h"
 #include "CSession.h"
-#include "AsioIOServicePool.h"
+#include "AsioIOContextPool.h"
 #include <memory>
 
 #include "AsioThreadPool.h"
@@ -22,7 +22,7 @@ void CServer::StartAccept() {
      *  使用智能指针要确保数据不会被销毁(进入每一个异步回调函数时都引用计数加1)
      *
      *  使用服务池里的 io_context 来创建 session
-     *  auto& io_context = AsioIOServicePool::GetInstance()->GetIOContext();
+     *  auto& io_context = AsioIOContextPool::GetInstance()->GetIOContext();
      *
      *  使用线程池里的 io_context 来创建 session
      *  auto& io_context = AsioThreadPool::GetInstance()->GetIOContext();

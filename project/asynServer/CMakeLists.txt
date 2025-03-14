@@ -16,8 +16,8 @@ add_executable(asynServer main.cpp
         Singleton.hpp
         LogicSystem.h
         LogicSystem.cpp
-        AsioIOServicePool.h
-        AsioIOServicePool.cpp
+        AsioIOContextPool.h
+        AsioIOContextPool.cpp
         AsioThreadPool.h
         AsioThreadPool.cpp)
 
