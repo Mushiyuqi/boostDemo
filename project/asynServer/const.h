@@ -12,3 +12,6 @@
 enum MSG_IDS {
     MSG_HELLO_WORlD = 1001
 };
+
+// io_context 多线程模型
+#define SERVICE_POOL_MODEL AsioThreadPool     // AsioIOServicePool  or  AsioThreadPool

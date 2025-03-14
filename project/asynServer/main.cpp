@@ -4,6 +4,7 @@
 #include <mutex>
 #include "LogicSystem.h"
 #include "AsioIOServicePool.h"
+#include "AsioThreadPool.h"
 #include "CServer.h"
 
 
@@ -12,8 +13,9 @@ int main() {
         // 让逻辑系统的线程变成主线程的子线程
         LogicSystem::GetInstance();
 
-        // 初始化服务池
-        AsioIOServicePool::GetInstance();
+        // AsioIOServicePool::GetInstance();    初始化服务池
+        // AsioThreadPool::GetInstance();       初始化线程池
+        SERVICE_POOL_MODEL::GetInstance();
 
         // 监听程序终止信号
         // 处理服务器连接请求
