@@ -9,7 +9,7 @@ class AsioIOContextPool: public Singleton<AsioIOContextPool>{
 public:
     // 设置别名
     using IOContext = boost::asio::io_context;
-    using Work = boost::asio::io_context::work;
+    using Work =  boost::asio::executor_work_guard<boost::asio::io_context::executor_type>;
     using WorkPtr = std::unique_ptr<Work>;
     ~AsioIOContextPool();
     AsioIOContextPool(const AsioIOContextPool&) = delete;

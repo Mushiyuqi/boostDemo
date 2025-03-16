@@ -2,7 +2,7 @@
 
 AsioIOContextPool::AsioIOContextPool(std::size_t size): m_ioContexts(size), m_works(size), m_nextIOContext(0) {
     for (std::size_t i = 0; i < size; ++i) {
-        m_works[i] = std::make_unique<Work>(m_ioContexts[i]);
+        m_works[i] = std::make_unique<Work>(boost::asio::make_work_guard(m_ioContexts[i]));
     }
 
     // 遍历多个iocontext 创建多个线程 每个线程都启动iocontext

@@ -15,7 +15,7 @@ public:
 private:
     AsioThreadPool(std::size_t threadNum = std::thread::hardware_concurrency());
     boost::asio::io_context m_ioContext;
-    std::unique_ptr<boost::asio::io_context::work> m_workPtr;
+    std::unique_ptr<boost::asio::executor_work_guard<boost::asio::io_context::executor_type>> m_workPtr;
     std::vector<std::thread> m_threads;
 
 };

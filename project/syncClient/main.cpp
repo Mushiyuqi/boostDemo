@@ -9,7 +9,7 @@ int main() {
     try {
         //创建上下文服务 endpoint socket error_code
         boost::asio::io_context ioc;
-        boost::asio::ip::tcp::endpoint remote_ep{boost::asio::ip::address::from_string("127.0.0.1"), 10086};
+        boost::asio::ip::tcp::endpoint remote_ep{boost::asio::ip::make_address("127.0.0.1"), 10086};
         boost::asio::ip::tcp::socket sock{ioc, remote_ep.protocol()};
         boost::system::error_code ec{boost::asio::error::host_not_found};
 
