@@ -1,0 +1,3 @@
+/run/media/root/linuxData/study/boostDemo/project/coroutineServer/build/CMakeFiles/corountineServer.dir
+/run/media/root/linuxData/study/boostDemo/project/coroutineServer/build/CMakeFiles/edit_cache.dir
+/run/media/root/linuxData/study/boostDemo/project/coroutineServer/build/CMakeFiles/rebuild_cache.dir
