@@ -4,7 +4,18 @@ project(corountineServer)
 set(CMAKE_CXX_STANDARD 20)
 
 add_executable(corountineServer main.cpp
-                )
+        MsgNode.h
+        MsgNode.cpp
+        const.h
+        AsioIOContextPool.cpp
+        AsioIOContextPool.h
+        CServer.h
+        CServer.cpp
+        CSession.h
+        CSession.cpp
+        LogicSystem.h
+        LogicSystem.cpp
+)
 
 # 添加Boost库的依赖
 find_package(Boost REQUIRED COMPONENTS system filesystem thread)

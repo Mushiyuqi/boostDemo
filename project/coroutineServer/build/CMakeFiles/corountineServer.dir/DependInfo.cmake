@@ -8,6 +8,11 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/run/media/root/linuxData/study/boostDemo/project/coroutineServer/AsioIOContextPool.cpp" "CMakeFiles/corountineServer.dir/AsioIOContextPool.cpp.o" "gcc" "CMakeFiles/corountineServer.dir/AsioIOContextPool.cpp.o.d"
+  "/run/media/root/linuxData/study/boostDemo/project/coroutineServer/CServer.cpp" "CMakeFiles/corountineServer.dir/CServer.cpp.o" "gcc" "CMakeFiles/corountineServer.dir/CServer.cpp.o.d"
+  "/run/media/root/linuxData/study/boostDemo/project/coroutineServer/CSession.cpp" "CMakeFiles/corountineServer.dir/CSession.cpp.o" "gcc" "CMakeFiles/corountineServer.dir/CSession.cpp.o.d"
+  "/run/media/root/linuxData/study/boostDemo/project/coroutineServer/LogicSystem.cpp" "CMakeFiles/corountineServer.dir/LogicSystem.cpp.o" "gcc" "CMakeFiles/corountineServer.dir/LogicSystem.cpp.o.d"
+  "/run/media/root/linuxData/study/boostDemo/project/coroutineServer/MsgNode.cpp" "CMakeFiles/corountineServer.dir/MsgNode.cpp.o" "gcc" "CMakeFiles/corountineServer.dir/MsgNode.cpp.o.d"
   "/run/media/root/linuxData/study/boostDemo/project/coroutineServer/main.cpp" "CMakeFiles/corountineServer.dir/main.cpp.o" "gcc" "CMakeFiles/corountineServer.dir/main.cpp.o.d"
   )
 

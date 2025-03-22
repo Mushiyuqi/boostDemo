@@ -1034,4 +1034,23 @@ CMakeFiles/corountineServer.dir/main.cpp.o: \
  /usr/include/boost/asio/windows/stream_handle.hpp \
  /usr/include/boost/asio/writable_pipe.hpp \
  /usr/include/boost/asio/write_at.hpp \
- /usr/include/boost/asio/impl/write_at.hpp
+ /usr/include/boost/asio/impl/write_at.hpp \
+ /run/media/root/linuxData/study/boostDemo/project/coroutineServer/CServer.h \
+ /usr/include/c++/14.2.1/map /usr/include/c++/14.2.1/bits/stl_tree.h \
+ /usr/include/c++/14.2.1/bits/stl_map.h \
+ /usr/include/c++/14.2.1/bits/stl_multimap.h \
+ /run/media/root/linuxData/study/boostDemo/project/coroutineServer/CSession.h \
+ /usr/include/c++/14.2.1/queue /usr/include/c++/14.2.1/deque \
+ /usr/include/c++/14.2.1/bits/stl_deque.h \
+ /usr/include/c++/14.2.1/bits/deque.tcc \
+ /usr/include/c++/14.2.1/bits/stl_queue.h \
+ /run/media/root/linuxData/study/boostDemo/project/coroutineServer/const.h \
+ /run/media/root/linuxData/study/boostDemo/project/coroutineServer/MsgNode.h \
+ /run/media/root/linuxData/study/boostDemo/project/coroutineServer/AsioIOContextPool.h \
+ /run/media/root/linuxData/study/boostDemo/project/coroutineServer/LogicSystem.h \
+ /usr/include/c++/14.2.1/thread /usr/include/json/json.h \
+ /usr/include/json/config.h /usr/include/json/allocator.h \
+ /usr/include/json/version.h /usr/include/json/json_features.h \
+ /usr/include/json/forwards.h /usr/include/json/reader.h \
+ /usr/include/json/value.h /usr/include/c++/14.2.1/stack \
+ /usr/include/c++/14.2.1/bits/stl_stack.h /usr/include/json/writer.h

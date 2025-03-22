@@ -83,14 +83,94 @@ CMakeFiles/corountineServer.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/corountineServer.dir/main.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /run/media/root/linuxData/study/boostDemo/project/coroutineServer/main.cpp -o CMakeFiles/corountineServer.dir/main.cpp.s
 
+CMakeFiles/corountineServer.dir/MsgNode.cpp.o: CMakeFiles/corountineServer.dir/flags.make
+CMakeFiles/corountineServer.dir/MsgNode.cpp.o: /run/media/root/linuxData/study/boostDemo/project/coroutineServer/MsgNode.cpp
+CMakeFiles/corountineServer.dir/MsgNode.cpp.o: CMakeFiles/corountineServer.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/run/media/root/linuxData/study/boostDemo/project/coroutineServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/corountineServer.dir/MsgNode.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/corountineServer.dir/MsgNode.cpp.o -MF CMakeFiles/corountineServer.dir/MsgNode.cpp.o.d -o CMakeFiles/corountineServer.dir/MsgNode.cpp.o -c /run/media/root/linuxData/study/boostDemo/project/coroutineServer/MsgNode.cpp
+
+CMakeFiles/corountineServer.dir/MsgNode.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/corountineServer.dir/MsgNode.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /run/media/root/linuxData/study/boostDemo/project/coroutineServer/MsgNode.cpp > CMakeFiles/corountineServer.dir/MsgNode.cpp.i
+
+CMakeFiles/corountineServer.dir/MsgNode.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/corountineServer.dir/MsgNode.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /run/media/root/linuxData/study/boostDemo/project/coroutineServer/MsgNode.cpp -o CMakeFiles/corountineServer.dir/MsgNode.cpp.s
+
+CMakeFiles/corountineServer.dir/AsioIOContextPool.cpp.o: CMakeFiles/corountineServer.dir/flags.make
+CMakeFiles/corountineServer.dir/AsioIOContextPool.cpp.o: /run/media/root/linuxData/study/boostDemo/project/coroutineServer/AsioIOContextPool.cpp
+CMakeFiles/corountineServer.dir/AsioIOContextPool.cpp.o: CMakeFiles/corountineServer.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/run/media/root/linuxData/study/boostDemo/project/coroutineServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/corountineServer.dir/AsioIOContextPool.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/corountineServer.dir/AsioIOContextPool.cpp.o -MF CMakeFiles/corountineServer.dir/AsioIOContextPool.cpp.o.d -o CMakeFiles/corountineServer.dir/AsioIOContextPool.cpp.o -c /run/media/root/linuxData/study/boostDemo/project/coroutineServer/AsioIOContextPool.cpp
+
+CMakeFiles/corountineServer.dir/AsioIOContextPool.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/corountineServer.dir/AsioIOContextPool.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /run/media/root/linuxData/study/boostDemo/project/coroutineServer/AsioIOContextPool.cpp > CMakeFiles/corountineServer.dir/AsioIOContextPool.cpp.i
+
+CMakeFiles/corountineServer.dir/AsioIOContextPool.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/corountineServer.dir/AsioIOContextPool.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /run/media/root/linuxData/study/boostDemo/project/coroutineServer/AsioIOContextPool.cpp -o CMakeFiles/corountineServer.dir/AsioIOContextPool.cpp.s
+
+CMakeFiles/corountineServer.dir/CServer.cpp.o: CMakeFiles/corountineServer.dir/flags.make
+CMakeFiles/corountineServer.dir/CServer.cpp.o: /run/media/root/linuxData/study/boostDemo/project/coroutineServer/CServer.cpp
+CMakeFiles/corountineServer.dir/CServer.cpp.o: CMakeFiles/corountineServer.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/run/media/root/linuxData/study/boostDemo/project/coroutineServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/corountineServer.dir/CServer.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/corountineServer.dir/CServer.cpp.o -MF CMakeFiles/corountineServer.dir/CServer.cpp.o.d -o CMakeFiles/corountineServer.dir/CServer.cpp.o -c /run/media/root/linuxData/study/boostDemo/project/coroutineServer/CServer.cpp
+
+CMakeFiles/corountineServer.dir/CServer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/corountineServer.dir/CServer.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /run/media/root/linuxData/study/boostDemo/project/coroutineServer/CServer.cpp > CMakeFiles/corountineServer.dir/CServer.cpp.i
+
+CMakeFiles/corountineServer.dir/CServer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/corountineServer.dir/CServer.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /run/media/root/linuxData/study/boostDemo/project/coroutineServer/CServer.cpp -o CMakeFiles/corountineServer.dir/CServer.cpp.s
+
+CMakeFiles/corountineServer.dir/CSession.cpp.o: CMakeFiles/corountineServer.dir/flags.make
+CMakeFiles/corountineServer.dir/CSession.cpp.o: /run/media/root/linuxData/study/boostDemo/project/coroutineServer/CSession.cpp
+CMakeFiles/corountineServer.dir/CSession.cpp.o: CMakeFiles/corountineServer.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/run/media/root/linuxData/study/boostDemo/project/coroutineServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/corountineServer.dir/CSession.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/corountineServer.dir/CSession.cpp.o -MF CMakeFiles/corountineServer.dir/CSession.cpp.o.d -o CMakeFiles/corountineServer.dir/CSession.cpp.o -c /run/media/root/linuxData/study/boostDemo/project/coroutineServer/CSession.cpp
+
+CMakeFiles/corountineServer.dir/CSession.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/corountineServer.dir/CSession.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /run/media/root/linuxData/study/boostDemo/project/coroutineServer/CSession.cpp > CMakeFiles/corountineServer.dir/CSession.cpp.i
+
+CMakeFiles/corountineServer.dir/CSession.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/corountineServer.dir/CSession.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /run/media/root/linuxData/study/boostDemo/project/coroutineServer/CSession.cpp -o CMakeFiles/corountineServer.dir/CSession.cpp.s
+
+CMakeFiles/corountineServer.dir/LogicSystem.cpp.o: CMakeFiles/corountineServer.dir/flags.make
+CMakeFiles/corountineServer.dir/LogicSystem.cpp.o: /run/media/root/linuxData/study/boostDemo/project/coroutineServer/LogicSystem.cpp
+CMakeFiles/corountineServer.dir/LogicSystem.cpp.o: CMakeFiles/corountineServer.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/run/media/root/linuxData/study/boostDemo/project/coroutineServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/corountineServer.dir/LogicSystem.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/corountineServer.dir/LogicSystem.cpp.o -MF CMakeFiles/corountineServer.dir/LogicSystem.cpp.o.d -o CMakeFiles/corountineServer.dir/LogicSystem.cpp.o -c /run/media/root/linuxData/study/boostDemo/project/coroutineServer/LogicSystem.cpp
+
+CMakeFiles/corountineServer.dir/LogicSystem.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/corountineServer.dir/LogicSystem.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /run/media/root/linuxData/study/boostDemo/project/coroutineServer/LogicSystem.cpp > CMakeFiles/corountineServer.dir/LogicSystem.cpp.i
+
+CMakeFiles/corountineServer.dir/LogicSystem.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/corountineServer.dir/LogicSystem.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /run/media/root/linuxData/study/boostDemo/project/coroutineServer/LogicSystem.cpp -o CMakeFiles/corountineServer.dir/LogicSystem.cpp.s
+
 # Object files for target corountineServer
 corountineServer_OBJECTS = \
-"CMakeFiles/corountineServer.dir/main.cpp.o"
+"CMakeFiles/corountineServer.dir/main.cpp.o" \
+"CMakeFiles/corountineServer.dir/MsgNode.cpp.o" \
+"CMakeFiles/corountineServer.dir/AsioIOContextPool.cpp.o" \
+"CMakeFiles/corountineServer.dir/CServer.cpp.o" \
+"CMakeFiles/corountineServer.dir/CSession.cpp.o" \
+"CMakeFiles/corountineServer.dir/LogicSystem.cpp.o"
 
 # External object files for target corountineServer
 corountineServer_EXTERNAL_OBJECTS =
 
 corountineServer: CMakeFiles/corountineServer.dir/main.cpp.o
+corountineServer: CMakeFiles/corountineServer.dir/MsgNode.cpp.o
+corountineServer: CMakeFiles/corountineServer.dir/AsioIOContextPool.cpp.o
+corountineServer: CMakeFiles/corountineServer.dir/CServer.cpp.o
+corountineServer: CMakeFiles/corountineServer.dir/CSession.cpp.o
+corountineServer: CMakeFiles/corountineServer.dir/LogicSystem.cpp.o
 corountineServer: CMakeFiles/corountineServer.dir/build.make
 corountineServer: /usr/lib/libabsl_log_internal_check_op.so.2407.0.0
 corountineServer: /usr/lib/libprotobuf.so
@@ -137,7 +217,7 @@ corountineServer: /usr/lib/libabsl_throw_delegate.so.2407.0.0
 corountineServer: /usr/lib/libabsl_raw_logging_internal.so.2407.0.0
 corountineServer: /usr/lib/libabsl_log_severity.so.2407.0.0
 corountineServer: CMakeFiles/corountineServer.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/run/media/root/linuxData/study/boostDemo/project/coroutineServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable corountineServer"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/run/media/root/linuxData/study/boostDemo/project/coroutineServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable corountineServer"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/corountineServer.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

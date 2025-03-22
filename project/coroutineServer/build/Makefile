@@ -129,6 +129,126 @@ corountineServer/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/corountineServer.dir/build.make CMakeFiles/corountineServer.dir/build
 .PHONY : corountineServer/fast
 
+AsioIOContextPool.o: AsioIOContextPool.cpp.o
+.PHONY : AsioIOContextPool.o
+
+# target to build an object file
+AsioIOContextPool.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/corountineServer.dir/build.make CMakeFiles/corountineServer.dir/AsioIOContextPool.cpp.o
+.PHONY : AsioIOContextPool.cpp.o
+
+AsioIOContextPool.i: AsioIOContextPool.cpp.i
+.PHONY : AsioIOContextPool.i
+
+# target to preprocess a source file
+AsioIOContextPool.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/corountineServer.dir/build.make CMakeFiles/corountineServer.dir/AsioIOContextPool.cpp.i
+.PHONY : AsioIOContextPool.cpp.i
+
+AsioIOContextPool.s: AsioIOContextPool.cpp.s
+.PHONY : AsioIOContextPool.s
+
+# target to generate assembly for a file
+AsioIOContextPool.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/corountineServer.dir/build.make CMakeFiles/corountineServer.dir/AsioIOContextPool.cpp.s
+.PHONY : AsioIOContextPool.cpp.s
+
+CServer.o: CServer.cpp.o
+.PHONY : CServer.o
+
+# target to build an object file
+CServer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/corountineServer.dir/build.make CMakeFiles/corountineServer.dir/CServer.cpp.o
+.PHONY : CServer.cpp.o
+
+CServer.i: CServer.cpp.i
+.PHONY : CServer.i
+
+# target to preprocess a source file
+CServer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/corountineServer.dir/build.make CMakeFiles/corountineServer.dir/CServer.cpp.i
+.PHONY : CServer.cpp.i
+
+CServer.s: CServer.cpp.s
+.PHONY : CServer.s
+
+# target to generate assembly for a file
+CServer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/corountineServer.dir/build.make CMakeFiles/corountineServer.dir/CServer.cpp.s
+.PHONY : CServer.cpp.s
+
+CSession.o: CSession.cpp.o
+.PHONY : CSession.o
+
+# target to build an object file
+CSession.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/corountineServer.dir/build.make CMakeFiles/corountineServer.dir/CSession.cpp.o
+.PHONY : CSession.cpp.o
+
+CSession.i: CSession.cpp.i
+.PHONY : CSession.i
+
+# target to preprocess a source file
+CSession.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/corountineServer.dir/build.make CMakeFiles/corountineServer.dir/CSession.cpp.i
+.PHONY : CSession.cpp.i
+
+CSession.s: CSession.cpp.s
+.PHONY : CSession.s
+
+# target to generate assembly for a file
+CSession.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/corountineServer.dir/build.make CMakeFiles/corountineServer.dir/CSession.cpp.s
+.PHONY : CSession.cpp.s
+
+LogicSystem.o: LogicSystem.cpp.o
+.PHONY : LogicSystem.o
+
+# target to build an object file
+LogicSystem.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/corountineServer.dir/build.make CMakeFiles/corountineServer.dir/LogicSystem.cpp.o
+.PHONY : LogicSystem.cpp.o
+
+LogicSystem.i: LogicSystem.cpp.i
+.PHONY : LogicSystem.i
+
+# target to preprocess a source file
+LogicSystem.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/corountineServer.dir/build.make CMakeFiles/corountineServer.dir/LogicSystem.cpp.i
+.PHONY : LogicSystem.cpp.i
+
+LogicSystem.s: LogicSystem.cpp.s
+.PHONY : LogicSystem.s
+
+# target to generate assembly for a file
+LogicSystem.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/corountineServer.dir/build.make CMakeFiles/corountineServer.dir/LogicSystem.cpp.s
+.PHONY : LogicSystem.cpp.s
+
+MsgNode.o: MsgNode.cpp.o
+.PHONY : MsgNode.o
+
+# target to build an object file
+MsgNode.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/corountineServer.dir/build.make CMakeFiles/corountineServer.dir/MsgNode.cpp.o
+.PHONY : MsgNode.cpp.o
+
+MsgNode.i: MsgNode.cpp.i
+.PHONY : MsgNode.i
+
+# target to preprocess a source file
+MsgNode.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/corountineServer.dir/build.make CMakeFiles/corountineServer.dir/MsgNode.cpp.i
+.PHONY : MsgNode.cpp.i
+
+MsgNode.s: MsgNode.cpp.s
+.PHONY : MsgNode.s
+
+# target to generate assembly for a file
+MsgNode.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/corountineServer.dir/build.make CMakeFiles/corountineServer.dir/MsgNode.cpp.s
+.PHONY : MsgNode.cpp.s
+
 main.o: main.cpp.o
 .PHONY : main.o
 
@@ -162,6 +282,21 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... corountineServer"
+	@echo "... AsioIOContextPool.o"
+	@echo "... AsioIOContextPool.i"
+	@echo "... AsioIOContextPool.s"
+	@echo "... CServer.o"
+	@echo "... CServer.i"
+	@echo "... CServer.s"
+	@echo "... CSession.o"
+	@echo "... CSession.i"
+	@echo "... CSession.s"
+	@echo "... LogicSystem.o"
+	@echo "... LogicSystem.i"
+	@echo "... LogicSystem.s"
+	@echo "... MsgNode.o"
+	@echo "... MsgNode.i"
+	@echo "... MsgNode.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
