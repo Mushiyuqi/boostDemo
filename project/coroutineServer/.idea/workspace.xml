@@ -20,44 +20,10 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c13dc327-e1ab-41d2-bad5-dc2eedac2fe5" name="更改" comment="完成一个协程服务器Demo">
-      <change afterPath="$PROJECT_DIR$/../../.idea/boostDamo.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../asynServer/.idea/asynServer.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/coroutineServer.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AsioIOContextPool.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AsioIOContextPool.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CServer.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CServer.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSession.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSession.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LogicSystem.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LogicSystem.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MsgNode.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MsgNode.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/const.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../syncClient/.idea/syncClient.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../syncServer/.idea/syncServer.iml" afterDir="false" />
+    <list default="true" id="c13dc327-e1ab-41d2-bad5-dc2eedac2fe5" name="更改" comment="完成协程服务器">
+      <change beforePath="$PROJECT_DIR$/.idea/editor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/editor.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/.cmake/api/v1/reply/codemodel-v2-314833a64f3127b5deca.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/.cmake/api/v1/reply/index-2025-03-17T13-47-37-0901.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/.cmake/api/v1/reply/target-corountineServer-Debug-76961de42429f7b74d21.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/Makefile2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/corountineServer.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/corountineServer.dir/DependInfo.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/corountineServer.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/corountineServer.dir/build.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/corountineServer.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/corountineServer.dir/cmake_clean.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/corountineServer.dir/compiler_depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/corountineServer.dir/compiler_depend.internal" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/corountineServer.dir/compiler_depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/corountineServer.dir/compiler_depend.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/corountineServer.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/corountineServer.dir/link.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/corountineServer.dir/main.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/corountineServer.dir/main.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/corountineServer.dir/main.cpp.o.d" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/corountineServer.dir/main.cpp.o.d" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/corountineServer.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/corountineServer.dir/progress.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/progress.marks" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/progress.marks" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/build/Makefile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/build/Testing/Temporary/LastTest.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/corountineServer" beforeDir="false" afterPath="$PROJECT_DIR$/build/corountineServer" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -156,6 +122,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
     "CMake 应用程序.corountineServer.executor": "Run",
     "RunOnceActivity.RadMigrateCodeStyle": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -198,7 +165,8 @@
       <workItem from="1742304405033" duration="3571000" />
       <workItem from="1742442643498" duration="2394000" />
       <workItem from="1742458781585" duration="17766000" />
-      <workItem from="1742642373900" duration="5451000" />
+      <workItem from="1742642373900" duration="7537000" />
+      <workItem from="1742719385167" duration="647000" />
     </task>
     <task id="LOCAL-00001" summary="完成一个协程服务器Demo">
       <option name="closed" value="true" />
@@ -208,7 +176,15 @@
       <option name="project" value="LOCAL" />
       <updated>1742302349772</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="完成协程服务器">
+      <option name="closed" value="true" />
+      <created>1742647976740</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1742647976740</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -231,7 +207,9 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="完成一个协程服务器Demo" />
-    <option name="LAST_COMMIT_MESSAGE" value="完成一个协程服务器Demo" />
+    <MESSAGE value="完成协程服务器" />
+    <option name="LAST_COMMIT_MESSAGE" value="完成协程服务器" />
   </component>
 </project>

@@ -1,0 +1,3 @@
+/run/media/root/linuxData/study/boostDemo/project/httpClient/cmake-build-debug/CMakeFiles/httpClient.dir
+/run/media/root/linuxData/study/boostDemo/project/httpClient/cmake-build-debug/CMakeFiles/edit_cache.dir
+/run/media/root/linuxData/study/boostDemo/project/httpClient/cmake-build-debug/CMakeFiles/rebuild_cache.dir

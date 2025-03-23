@@ -1,0 +1,18 @@
+{
+	"bmi-installation" : null,
+	"compiler-frontend-variant" : "GNU",
+	"compiler-id" : "GNU",
+	"compiler-simulate-id" : "",
+	"config" : "Debug",
+	"cxx-modules" : {},
+	"dir-cur-bld" : "/run/media/root/linuxData/study/boostDemo/project/httpClient/cmake-build-debug",
+	"dir-cur-src" : "/run/media/root/linuxData/study/boostDemo/project/httpClient",
+	"dir-top-bld" : "/run/media/root/linuxData/study/boostDemo/project/httpClient/cmake-build-debug",
+	"dir-top-src" : "/run/media/root/linuxData/study/boostDemo/project/httpClient",
+	"exports" : [],
+	"forward-modules-from-target-dirs" : [],
+	"include-dirs" : [],
+	"language" : "CXX",
+	"linked-target-dirs" : [],
+	"module-dir" : "/run/media/root/linuxData/study/boostDemo/project/httpClient/cmake-build-debug/CMakeFiles/httpClient.dir"
+}
