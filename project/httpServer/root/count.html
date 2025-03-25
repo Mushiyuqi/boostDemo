@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小杨老师课堂抽问随机点名</title>
+    <style>
+        /* 全局样式 */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #e0f7fa, #80deea);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            color: #333;
+        }
+
+        /* 标题样式 */
+        h1 {
+            font-size: 2.5rem;
+            color: #00796b;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* 姓名显示区域样式 */
+        #nameDisplay {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #00796b;
+            margin: 20px 0;
+            padding: 20px;
+            border: 2px solid #00796b;
+            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        /* 选中姓名时的样式 */
+        #nameDisplay.selected {
+            font-size: 4rem;
+            color: #00796b;
+            text-shadow: 2px 2px 4px rgba(0, 121, 107, 0.3);
+        }
+
+        /* 按钮样式 */
+        #startButton {
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            color: #fff;
+            background-color: #00796b;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #startButton:hover {
+            background-color: #004d40;
+        }
+
+        /* 速度控制样式 */
+        #speedControl {
+            margin-top: 20px;
+            width: 200px;
+            text-align: center;
+        }
+
+        #speedControl label {
+            font-size: 1rem;
+            color: #00796b;
+        }
+
+        #speed {
+            width: 100%;
+            accent-color: #00796b; /* 滑轮颜色 */
+        }
+    </style>
+</head>
+<body>
+    <h1>小杨老师课堂抽问随机点名</h1>
+    <div id="nameDisplay">点击开始抽问</div>
+    <button id="startButton">开始抽问</button>
+    <div id="speedControl">
+        <label for="speed">滚动速度:</label>
+        <input type="range" id="speed" min="1" max="100" value="50">
+    </div>
+
+    <script>
+        // 学生姓名列表
+        const names = [
+            "梁睿", "杨鑫宇", "张珂绮", "苏依依", "黄芊芊", "吴子轩", "张璐", "任旭升",
+            "郭奥杰", "殷默嘉", "靳玲琦", "张紫怡", "陈奕萱", "丁孜", "靳雨婷", "梁贵林",
+            "马潇语", "买智杰", "李昊泽", "张廷钰", "李成", "郭淑华", "莫菲儿", "王怡雯",
+            "张宵涵", "丁伊含", "任子鹏", "闫偌瑜", "梁琳琦", "张晨馨"
+        ];
+
+        let isRunning = false; // 是否正在滚动
+        let interval; // 定时器
+        const nameDisplay = document.getElementById('nameDisplay'); // 姓名显示区域
+        const startButton = document.getElementById('startButton'); // 开始/暂停按钮
+        const speedControl = document.getElementById('speed'); // 速度控制滑轮
+
+        // 随机获取一个姓名
+        function getRandomName() {
+            return names[Math.floor(Math.random() * names.length)];
+        }
+
+        // 开始滚动姓名
+        function startRolling() {
+            isRunning = true;
+            startButton.textContent = "暂停抽问";
+            interval = setInterval(() => {
+                nameDisplay.textContent = getRandomName();
+            }, 1000 / speedControl.value); // 根据滑轮值调整速度
+        }
+
+        // 停止滚动姓名
+        function stopRolling() {
+            isRunning = false;
+            startButton.textContent = "开始抽问";
+            clearInterval(interval);
+            nameDisplay.classList.add('selected'); // 添加选中样式
+        }
+
+        // 按钮点击事件
+        startButton.addEventListener('click', () => {
+            if (isRunning) {
+                stopRolling();
+            } else {
+                nameDisplay.classList.remove('selected'); // 移除选中样式
+                startRolling();
+            }
+        });
+
+        // 滑轮值变化事件
+        speedControl.addEventListener('input', () => {
+            if (isRunning) {
+                clearInterval(interval);
+                startRolling();
+            }
+        });
+    </script>
+</body>
+</html>

@@ -21,9 +21,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c13dc327-e1ab-41d2-bad5-dc2eedac2fe5" name="更改" comment="完成协程服务器">
-      <change beforePath="$PROJECT_DIR$/.idea/editor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/editor.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../httpServer/AsioIOContextPool.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../httpServer/AsioIOContextPool.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../httpServer/CMakeLists.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../httpServer/HttpConnection.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../httpServer/HttpConnection.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../httpServer/HttpServer.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../httpServer/HttpServer.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../httpServer/const.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../httpServer/global.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../httpServer/main.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../httpServer/root/count/count.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../httpServer/root/time/time.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/build/Testing/Temporary/LastTest.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../httpClient/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/../httpClient/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -120,31 +132,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "CMake 应用程序.corountineServer.executor": "Run",
-    "RunOnceActivity.RadMigrateCodeStyle": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.cidr.known.project.marker": "true",
-    "RunOnceActivity.readMode.enableVisualFormatting": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "cf.first.check.clang-format": "false",
-    "cidr.known.project.marker": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "CMakeSettings",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;CMake 应用程序.corountineServer.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.RadMigrateCodeStyle&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;CMakeSettings&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql_aurora_aws"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql_aurora_aws&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="corountineServer" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="corountineServer" TARGET_NAME="corountineServer" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="corountineServer" RUN_TARGET_NAME="corountineServer">
       <method v="2">
@@ -167,6 +179,8 @@
       <workItem from="1742458781585" duration="17766000" />
       <workItem from="1742642373900" duration="7537000" />
       <workItem from="1742719385167" duration="647000" />
+      <workItem from="1742902668062" duration="71000" />
+      <workItem from="1742903023530" duration="2141000" />
     </task>
     <task id="LOCAL-00001" summary="完成一个协程服务器Demo">
       <option name="closed" value="true" />
