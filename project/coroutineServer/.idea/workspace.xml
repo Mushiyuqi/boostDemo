@@ -21,21 +21,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c13dc327-e1ab-41d2-bad5-dc2eedac2fe5" name="更改" comment="完成协程服务器">
-      <change afterPath="$PROJECT_DIR$/../httpServer/AsioIOContextPool.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../httpServer/AsioIOContextPool.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../httpServer/CMakeLists.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../httpServer/HttpConnection.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../httpServer/HttpConnection.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../httpServer/HttpServer.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../httpServer/HttpServer.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../httpServer/const.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../httpServer/global.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../httpServer/main.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../httpServer/root/count/count.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../httpServer/root/time/time.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../httpClient/.idea/httpClient.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../httpServer/.idea/httpServer.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webSocket/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webSocket/.idea/editor.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webSocket/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webSocket/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webSocket/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webSocket/.idea/webSocket.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webSocket/CMakeLists.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webSocket/Connection.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webSocket/Connection.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webSocket/ConnectionManager.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webSocket/ConnectionManager.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webSocket/WebSocketServer.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webSocket/WebSocketServer.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webSocket/build/CMakeFiles/webSocket.dir/compiler_depend.internal" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webSocket/global.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webSocket/main.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/build/Testing/Temporary/LastTest.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../httpClient/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/../httpClient/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -181,6 +186,9 @@
       <workItem from="1742719385167" duration="647000" />
       <workItem from="1742902668062" duration="71000" />
       <workItem from="1742903023530" duration="2141000" />
+      <workItem from="1742997440085" duration="725000" />
+      <workItem from="1743080686696" duration="2910000" />
+      <workItem from="1743084405720" duration="268000" />
     </task>
     <task id="LOCAL-00001" summary="完成一个协程服务器Demo">
       <option name="closed" value="true" />
